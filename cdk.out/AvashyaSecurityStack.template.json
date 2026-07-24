@@ -1,0 +1,493 @@
+{
+ "Description": "Custom IAM Roles and chained Security Groups for 3-Tier Web Application.",
+ "Resources": {
+  "AvashyaEC2WebRole7082D1D3": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ec2.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Description": "IAM Role for Web Tier EC2 instances with CloudWatch Agent capabilities.",
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/CloudWatchAgentServerPolicy"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonSSMManagedInstanceCore"
+       ]
+      ]
+     }
+    ],
+    "RoleName": "Avashya-EC2-Web-Role"
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/AvashyaEC2WebRole/Resource"
+   }
+  },
+  "AvashyaEC2AppRole6D6FD27D": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ec2.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Description": "IAM Role for App Tier EC2 instances with S3, CloudWatch, and RDS IAM Auth access.",
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/CloudWatchAgentServerPolicy"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonS3FullAccess"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonSSMManagedInstanceCore"
+       ]
+      ]
+     }
+    ],
+    "RoleName": "Avashya-EC2-App-Role"
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/AvashyaEC2AppRole/Resource"
+   }
+  },
+  "AvashyaEC2AppRoleDefaultPolicy5C43EFCB": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "rds-db:connect",
+        "rds:*"
+       ],
+       "Effect": "Allow",
+       "Resource": "*",
+       "Sid": "AllowRDSAuthAndAccess"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "AvashyaEC2AppRoleDefaultPolicy5C43EFCB",
+    "Roles": [
+     {
+      "Ref": "AvashyaEC2AppRole6D6FD27D"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/AvashyaEC2AppRole/DefaultPolicy/Resource"
+   }
+  },
+  "ExternalALBSGEA0ECB7E": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "External Internet-Facing Load Balancer Security Group",
+    "GroupName": "External-ALB-SG",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow HTTP 80 traffic from Internet",
+      "FromPort": 80,
+      "IpProtocol": "tcp",
+      "ToPort": 80
+     },
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow HTTPS 443 traffic from Internet",
+      "FromPort": 443,
+      "IpProtocol": "tcp",
+      "ToPort": 443
+     }
+    ],
+    "VpcId": {
+     "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcCC90F1FD1420099A"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/ExternalALBSG/Resource"
+   }
+  },
+  "WebTierSG54213D40": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Web Tier Security Group",
+    "GroupName": "Web-Tier-SG",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcCC90F1FD1420099A"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/WebTierSG/Resource"
+   }
+  },
+  "WebTierSGfromAvashyaSecurityStackExternalALBSG1F3DF22E809471B815": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "Description": "Allow HTTP 80 ONLY from External-ALB-SG",
+    "FromPort": 80,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "WebTierSG54213D40",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "ExternalALBSGEA0ECB7E",
+      "GroupId"
+     ]
+    },
+    "ToPort": 80
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/WebTierSG/from AvashyaSecurityStackExternalALBSG1F3DF22E:80"
+   }
+  },
+  "WebTierSGfromAvashyaSecurityStackExternalALBSG1F3DF22E5000ACF34B95": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "Description": "Allow HTTP 5000 ONLY from External-ALB-SG",
+    "FromPort": 5000,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "WebTierSG54213D40",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "ExternalALBSGEA0ECB7E",
+      "GroupId"
+     ]
+    },
+    "ToPort": 5000
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/WebTierSG/from AvashyaSecurityStackExternalALBSG1F3DF22E:5000"
+   }
+  },
+  "InternalALBSGD5E69F64": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Internal Application Load Balancer Security Group",
+    "GroupName": "Internal-ALB-SG",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcCC90F1FD1420099A"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/InternalALBSG/Resource"
+   }
+  },
+  "InternalALBSGfromAvashyaSecurityStackWebTierSG86FEDE3C800055636661": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "Description": "Allow TCP 8000 ONLY from Web-Tier-SG",
+    "FromPort": 8000,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "InternalALBSGD5E69F64",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "WebTierSG54213D40",
+      "GroupId"
+     ]
+    },
+    "ToPort": 8000
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/InternalALBSG/from AvashyaSecurityStackWebTierSG86FEDE3C:8000"
+   }
+  },
+  "AppTierSGF01B6512": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "App Tier Security Group",
+    "GroupName": "App-Tier-SG",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcCC90F1FD1420099A"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/AppTierSG/Resource"
+   }
+  },
+  "AppTierSGfromAvashyaSecurityStackInternalALBSGFFA776448000CC76D97D": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "Description": "Allow TCP 8000 ONLY from Internal-ALB-SG",
+    "FromPort": 8000,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "AppTierSGF01B6512",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "InternalALBSGD5E69F64",
+      "GroupId"
+     ]
+    },
+    "ToPort": 8000
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/AppTierSG/from AvashyaSecurityStackInternalALBSGFFA77644:8000"
+   }
+  },
+  "RDSDatabaseSGBA197A52": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Amazon RDS Database Security Group",
+    "GroupName": "RDS-Database-SG",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcCC90F1FD1420099A"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/RDSDatabaseSG/Resource"
+   }
+  },
+  "RDSDatabaseSGfromAvashyaSecurityStackAppTierSG660276C3543243AA98D0": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "Description": "Allow PostgreSQL 5432 ONLY from App-Tier-SG",
+    "FromPort": 5432,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "RDSDatabaseSGBA197A52",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "AppTierSGF01B6512",
+      "GroupId"
+     ]
+    },
+    "ToPort": 5432
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/RDSDatabaseSG/from AvashyaSecurityStackAppTierSG660276C3:5432"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/32JQQ7CIBBFz9I9jJbqCVwYd017AIMj6lgKhoE0hHB3U7t39f77T4E6dtA2emGJ90laukEZo8ZJ6IWvhfQMZfDWiNPD/dh7S5hX3VYVBhWU0WAKFPM5+PRZ6//j4p7BMNdaRZ/jy7tdB+0B9s2biWRILtJsYNj4BfozETGlAAAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaSecurityStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "ExportsOutputFnGetAttRDSDatabaseSGBA197A52GroupId9D765699": {
+   "Value": {
+    "Fn::GetAtt": [
+     "RDSDatabaseSGBA197A52",
+     "GroupId"
+    ]
+   },
+   "Export": {
+    "Name": "AvashyaSecurityStack:ExportsOutputFnGetAttRDSDatabaseSGBA197A52GroupId9D765699"
+   }
+  },
+  "ExportsOutputFnGetAttInternalALBSGD5E69F64GroupIdEBCF7038": {
+   "Value": {
+    "Fn::GetAtt": [
+     "InternalALBSGD5E69F64",
+     "GroupId"
+    ]
+   },
+   "Export": {
+    "Name": "AvashyaSecurityStack:ExportsOutputFnGetAttInternalALBSGD5E69F64GroupIdEBCF7038"
+   }
+  },
+  "ExportsOutputFnGetAttExternalALBSGEA0ECB7EGroupIdB1F6EDA4": {
+   "Value": {
+    "Fn::GetAtt": [
+     "ExternalALBSGEA0ECB7E",
+     "GroupId"
+    ]
+   },
+   "Export": {
+    "Name": "AvashyaSecurityStack:ExportsOutputFnGetAttExternalALBSGEA0ECB7EGroupIdB1F6EDA4"
+   }
+  },
+  "ExportsOutputRefAvashyaEC2WebRole7082D1D3FFAC0407": {
+   "Value": {
+    "Ref": "AvashyaEC2WebRole7082D1D3"
+   },
+   "Export": {
+    "Name": "AvashyaSecurityStack:ExportsOutputRefAvashyaEC2WebRole7082D1D3FFAC0407"
+   }
+  },
+  "ExportsOutputFnGetAttWebTierSG54213D40GroupIdDA0C152B": {
+   "Value": {
+    "Fn::GetAtt": [
+     "WebTierSG54213D40",
+     "GroupId"
+    ]
+   },
+   "Export": {
+    "Name": "AvashyaSecurityStack:ExportsOutputFnGetAttWebTierSG54213D40GroupIdDA0C152B"
+   }
+  },
+  "ExportsOutputRefAvashyaEC2AppRole6D6FD27DB2C07368": {
+   "Value": {
+    "Ref": "AvashyaEC2AppRole6D6FD27D"
+   },
+   "Export": {
+    "Name": "AvashyaSecurityStack:ExportsOutputRefAvashyaEC2AppRole6D6FD27DB2C07368"
+   }
+  },
+  "ExportsOutputFnGetAttAppTierSGF01B6512GroupIdA30E624E": {
+   "Value": {
+    "Fn::GetAtt": [
+     "AppTierSGF01B6512",
+     "GroupId"
+    ]
+   },
+   "Export": {
+    "Name": "AvashyaSecurityStack:ExportsOutputFnGetAttAppTierSGF01B6512GroupIdA30E624E"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

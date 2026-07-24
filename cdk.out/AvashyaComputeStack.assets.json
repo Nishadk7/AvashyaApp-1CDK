@@ -1,0 +1,21 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "66ea0cd88ca7a76acf97bed959e87b735804ebac434f0bdb3266ef3b3f5a9d72": {
+      "displayName": "AvashyaComputeStack Template",
+      "source": {
+        "path": "AvashyaComputeStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "659071698167-ap-south-1-088a4fe6": {
+          "bucketName": "cdk-hnb659fds-assets-659071698167-ap-south-1",
+          "objectKey": "66ea0cd88ca7a76acf97bed959e87b735804ebac434f0bdb3266ef3b3f5a9d72.json",
+          "region": "ap-south-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::659071698167:role/cdk-hnb659fds-file-publishing-role-659071698167-ap-south-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

@@ -1,0 +1,445 @@
+{
+  "/AvashyaSecurityStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/AvashyaEC2WebRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AvashyaEC2WebRole7082D1D3"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Role2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/AvashyaEC2AppRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AvashyaEC2AppRole6D6FD27D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Role2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/ExternalALBSG/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExternalALBSGEA0ECB7E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/WebTierSG/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "WebTierSG54213D40"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/WebTierSG/from AvashyaSecurityStackExternalALBSG1F3DF22E:80": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "WebTierSGfromAvashyaSecurityStackExternalALBSG1F3DF22E809471B815"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/WebTierSG/from AvashyaSecurityStackExternalALBSG1F3DF22E:5000": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "WebTierSGfromAvashyaSecurityStackExternalALBSG1F3DF22E5000ACF34B95"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/InternalALBSG/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "InternalALBSGD5E69F64"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/InternalALBSG/from AvashyaSecurityStackWebTierSG86FEDE3C:8000": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "InternalALBSGfromAvashyaSecurityStackWebTierSG86FEDE3C800055636661"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/AppTierSG/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AppTierSGF01B6512"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/AppTierSG/from AvashyaSecurityStackInternalALBSGFFA77644:8000": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AppTierSGfromAvashyaSecurityStackInternalALBSGFFA776448000CC76D97D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/RDSDatabaseSG/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RDSDatabaseSGBA197A52"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/RDSDatabaseSG/from AvashyaSecurityStackAppTierSG660276C3:5432": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RDSDatabaseSGfromAvashyaSecurityStackAppTierSG660276C3543243AA98D0"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/Exports/Output{\"Fn::GetAtt\":[\"RDSDatabaseSGBA197A52\",\"GroupId\"]}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputFnGetAttRDSDatabaseSGBA197A52GroupId9D765699"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/Exports/Output{\"Fn::GetAtt\":[\"InternalALBSGD5E69F64\",\"GroupId\"]}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputFnGetAttInternalALBSGD5E69F64GroupIdEBCF7038"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/Exports/Output{\"Fn::GetAtt\":[\"ExternalALBSGEA0ECB7E\",\"GroupId\"]}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputFnGetAttExternalALBSGEA0ECB7EGroupIdB1F6EDA4"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/Exports/Output{\"Ref\":\"AvashyaEC2WebRole7082D1D3\"}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputRefAvashyaEC2WebRole7082D1D3FFAC0407"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/Exports/Output{\"Fn::GetAtt\":[\"WebTierSG54213D40\",\"GroupId\"]}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputFnGetAttWebTierSG54213D40GroupIdDA0C152B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/Exports/Output{\"Ref\":\"AvashyaEC2AppRole6D6FD27D\"}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputRefAvashyaEC2AppRole6D6FD27DB2C07368"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/Exports/Output{\"Fn::GetAtt\":[\"AppTierSGF01B6512\",\"GroupId\"]}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputFnGetAttAppTierSGF01B6512GroupIdA30E624E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaSecurityStack/AvashyaEC2AppRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AvashyaEC2AppRoleDefaultPolicy5C43EFCB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ]
+}

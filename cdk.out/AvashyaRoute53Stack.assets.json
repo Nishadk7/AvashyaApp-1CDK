@@ -1,0 +1,21 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "1682d6ca98b015b6144072453f822d7c8d6ff3adfd91be9869ce77f2240a009e": {
+      "displayName": "AvashyaRoute53Stack Template",
+      "source": {
+        "path": "AvashyaRoute53Stack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "659071698167-ap-south-1-65d96429": {
+          "bucketName": "cdk-hnb659fds-assets-659071698167-ap-south-1",
+          "objectKey": "1682d6ca98b015b6144072453f822d7c8d6ff3adfd91be9869ce77f2240a009e.json",
+          "region": "ap-south-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::659071698167:role/cdk-hnb659fds-file-publishing-role-659071698167-ap-south-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

@@ -1,0 +1,21 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "f0d815ffe475d9044f42bf896612cc7b118badb0ffc1278772f96483a2eaf23a": {
+      "displayName": "AvashyaSecurityStack Template",
+      "source": {
+        "path": "AvashyaSecurityStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "659071698167-ap-south-1-a5776075": {
+          "bucketName": "cdk-hnb659fds-assets-659071698167-ap-south-1",
+          "objectKey": "f0d815ffe475d9044f42bf896612cc7b118badb0ffc1278772f96483a2eaf23a.json",
+          "region": "ap-south-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::659071698167:role/cdk-hnb659fds-file-publishing-role-659071698167-ap-south-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

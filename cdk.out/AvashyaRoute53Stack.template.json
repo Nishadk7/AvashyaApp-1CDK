@@ -1,0 +1,120 @@
+{
+ "Description": "AWS Route 53 Hosted Zone and Alias A-Records pointing public domain traffic to External ALB.",
+ "Resources": {
+  "AvashyaHostedZone16E5F019": {
+   "Type": "AWS::Route53::HostedZone",
+   "Properties": {
+    "HostedZoneConfig": {
+     "Comment": "Public Hosted Zone for AvashyaApp 3-Tier Web Application"
+    },
+    "Name": "avashyaapp.com."
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaRoute53Stack/AvashyaHostedZone/Resource"
+   }
+  },
+  "ApexAliasRecordCCE6BE0E": {
+   "Type": "AWS::Route53::RecordSet",
+   "Properties": {
+    "AliasTarget": {
+     "DNSName": {
+      "Fn::Join": [
+       "",
+       [
+        "dualstack.",
+        {
+         "Fn::ImportValue": "AvashyaComputeStack:ExportsOutputFnGetAttExternalALB7DC65DECDNSName066CB64B"
+        }
+       ]
+      ]
+     },
+     "HostedZoneId": {
+      "Fn::ImportValue": "AvashyaComputeStack:ExportsOutputFnGetAttExternalALB7DC65DECCanonicalHostedZoneID350DCCE5"
+     }
+    },
+    "Comment": "Apex Alias A-record routing public traffic to External ALB",
+    "HostedZoneId": {
+     "Ref": "AvashyaHostedZone16E5F019"
+    },
+    "Name": "avashyaapp.com.",
+    "Type": "A"
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaRoute53Stack/ApexAliasRecord/Resource"
+   }
+  },
+  "WwwAliasRecord1B442697": {
+   "Type": "AWS::Route53::RecordSet",
+   "Properties": {
+    "AliasTarget": {
+     "DNSName": {
+      "Fn::Join": [
+       "",
+       [
+        "dualstack.",
+        {
+         "Fn::ImportValue": "AvashyaComputeStack:ExportsOutputFnGetAttExternalALB7DC65DECDNSName066CB64B"
+        }
+       ]
+      ]
+     },
+     "HostedZoneId": {
+      "Fn::ImportValue": "AvashyaComputeStack:ExportsOutputFnGetAttExternalALB7DC65DECCanonicalHostedZoneID350DCCE5"
+     }
+    },
+    "Comment": "WWW Subdomain Alias A-record routing public traffic to External ALB",
+    "HostedZoneId": {
+     "Ref": "AvashyaHostedZone16E5F019"
+    },
+    "Name": "www.avashyaapp.com.",
+    "Type": "A"
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaRoute53Stack/WwwAliasRecord/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zPSMzI11jNUTCwv1k1OydbNyUzSqw4uSUzO1kksL44vyi8tSTU11qsOKE3KyUz2yC8uSU2Jys9L1XFOy0PiOQalJucXpYBEIazg1JLaWp2AypKM/Dx9Yz1DEz0DxazizEzdotK8kszcVL0gCA0A9o8fCoAAAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaRoute53Stack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}
