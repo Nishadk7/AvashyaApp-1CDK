@@ -5,7 +5,13 @@
    "Type": "AWS::Logs::LogGroup",
    "Properties": {
     "LogGroupName": "/aws/ec2/AvashyaApp/AppTier",
-    "RetentionInDays": 30
+    "RetentionInDays": 30,
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ]
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
@@ -17,7 +23,13 @@
    "Type": "AWS::Logs::LogGroup",
    "Properties": {
     "LogGroupName": "/aws/ec2/AvashyaApp/WebTier",
-    "RetentionInDays": 30
+    "RetentionInDays": 30,
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ]
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
@@ -29,7 +41,13 @@
    "Type": "AWS::Logs::LogGroup",
    "Properties": {
     "LogGroupName": "/aws/ec2/AvashyaApp/NginxAccess",
-    "RetentionInDays": 30
+    "RetentionInDays": 30,
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ]
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
@@ -59,6 +77,12 @@
      },
      {
       "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcPrivateAppSubnet2Subnet705404F76A20E04D"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "Type": "application"
@@ -96,6 +120,12 @@
     "HealthCheckTimeoutSeconds": 5,
     "Port": 8000,
     "Protocol": "HTTP",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
     "TargetGroupAttributes": [
      {
       "Key": "stickiness.enabled",
@@ -135,6 +165,12 @@
       "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcPublicSubnet2Subnet23D980E85F043558"
      }
     ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
     "Type": "application"
    },
    "Metadata": {
@@ -170,6 +206,12 @@
     "HealthCheckTimeoutSeconds": 5,
     "Port": 80,
     "Protocol": "HTTP",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
     "TargetGroupAttributes": [
      {
       "Key": "stickiness.enabled",
@@ -183,6 +225,94 @@
    },
    "Metadata": {
     "aws:cdk:path": "AvashyaComputeStack/ExternalALB/ExternalListener/WebTierTargetsGroup/Resource"
+   }
+  },
+  "PublicNLBED39B775": {
+   "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+   "Properties": {
+    "LoadBalancerAttributes": [
+     {
+      "Key": "deletion_protection.enabled",
+      "Value": "false"
+     }
+    ],
+    "Name": "avashya-public-nlb",
+    "Scheme": "internet-facing",
+    "Subnets": [
+     {
+      "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcPublicSubnet1Subnet0AD32FA1AC45D685"
+     },
+     {
+      "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcPublicSubnet2Subnet23D980E85F043558"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
+    "Type": "network"
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaComputeStack/PublicNLB/Resource"
+   }
+  },
+  "PublicNLBNLBListener793698C1": {
+   "Type": "AWS::ElasticLoadBalancingV2::Listener",
+   "Properties": {
+    "DefaultActions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "PublicNLBNLBListenerALBTargetGroupGroup28A9D8C8"
+      },
+      "Type": "forward"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "PublicNLBED39B775"
+    },
+    "Port": 80,
+    "Protocol": "TCP"
+   },
+   "Metadata": {
+    "aws:cdk:path": "AvashyaComputeStack/PublicNLB/NLBListener/Resource"
+   }
+  },
+  "PublicNLBNLBListenerALBTargetGroupGroup28A9D8C8": {
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+   "Properties": {
+    "HealthCheckIntervalSeconds": 30,
+    "HealthCheckPath": "/",
+    "HealthCheckProtocol": "HTTP",
+    "HealthCheckTimeoutSeconds": 10,
+    "Port": 80,
+    "Protocol": "TCP",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
+    "TargetType": "alb",
+    "Targets": [
+     {
+      "Id": {
+       "Ref": "ExternalALB7DC65DEC"
+      },
+      "Port": 80
+     }
+    ],
+    "VpcId": {
+     "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcCC90F1FD1420099A"
+    }
+   },
+   "DependsOn": [
+    "ExternalALBExternalListener86CA709B",
+    "ExternalALBExternalListenerWebTierTargetsGroup52C08DBC"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "AvashyaComputeStack/PublicNLB/NLBListener/ALBTargetGroupGroup/Resource"
    }
   },
   "AvashyaWebLTProfileC4C13A98": {
@@ -226,6 +356,10 @@
         {
          "Key": "Name",
          "Value": "AvashyaComputeStack/AvashyaWebLT"
+        },
+        {
+         "Key": "Owner",
+         "Value": "Nishad"
         }
        ]
       },
@@ -235,6 +369,10 @@
         {
          "Key": "Name",
          "Value": "AvashyaComputeStack/AvashyaWebLT"
+        },
+        {
+         "Key": "Owner",
+         "Value": "Nishad"
         }
        ]
       }
@@ -265,6 +403,10 @@
        {
         "Key": "Name",
         "Value": "AvashyaComputeStack/AvashyaWebLT"
+       },
+       {
+        "Key": "Owner",
+        "Value": "Nishad"
        }
       ]
      }
@@ -315,6 +457,10 @@
         {
          "Key": "Name",
          "Value": "AvashyaComputeStack/AvashyaAppLT"
+        },
+        {
+         "Key": "Owner",
+         "Value": "Nishad"
         }
        ]
       },
@@ -324,6 +470,10 @@
         {
          "Key": "Name",
          "Value": "AvashyaComputeStack/AvashyaAppLT"
+        },
+        {
+         "Key": "Owner",
+         "Value": "Nishad"
         }
        ]
       }
@@ -375,6 +525,10 @@
        {
         "Key": "Name",
         "Value": "AvashyaComputeStack/AvashyaAppLT"
+       },
+       {
+        "Key": "Owner",
+        "Value": "Nishad"
        }
       ]
      }
@@ -404,6 +558,13 @@
     },
     "MaxSize": "3",
     "MinSize": "1",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "PropagateAtLaunch": true,
+      "Value": "Nishad"
+     }
+    ],
     "TargetGroupARNs": [
      {
       "Ref": "ExternalALBExternalListenerWebTierTargetsGroup52C08DBC"
@@ -467,6 +628,13 @@
     },
     "MaxSize": "3",
     "MinSize": "1",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "PropagateAtLaunch": true,
+      "Value": "Nishad"
+     }
+    ],
     "TargetGroupARNs": [
      {
       "Ref": "InternalALBInternalListenerAppTierTargetsGroup71D49A2A"
@@ -513,7 +681,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/2VOzW7CMAx+Fu5pNsr2AIzDNKmHCnqfTOoGr6lT5WcIRXn3qRRQ0U7+/uzPpSzfN3K9grMvVNsXho4yHQKoXsDZfydjtZepsvrT2TiKXcd3nAUa8IGUsdAewQArYv1byrQdR0MKAlmuLLQfVw/dvLzgyxz5gHzL3PHCb8BpDI8fFjQLVKVMFURWpwaH0UDA65knJQuCQe46/mIfpvra2Y4MCojBegWGWMu0jcEeZvLo+qfN5Y0D1RPrm1VbQ+oy5Z+EnCepBgcDBnRij95GpzCL+hJOll82cv0mX1c/nqhwkQMNKPfz/AMwaO+cmwEAAA=="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/2VOy26DQAz8ltw324a0H5DmUFVCFUq4V85iiMOyRrumKEL8e0WACNSTPQ/PONLR+17vNtCGrcnKraWL7s4CplTQhp/OchF0F3Px6bmp1TF3894rtBCEjGXILmDBGXLFb6S7Q11bMiDELmbIPh4a+vF4gZc+CoJu8sz7Qk/BFyjPH5bwG6VlX66SZ25OmvDirFdoIt3F0DhzTbGqLQg+2ldMrwgqfczdlwsyZCeec7KooBEOBiy5QneHRvg8gueL/7ixPPVgSnLFJCVsydwH/4ro+4FKwEOFgl6dMHDjDfYqucuV3cte79706+YWiLa+cUIV6tM4/wAE3VYZ0gEAAA=="
    },
    "Metadata": {
     "aws:cdk:path": "AvashyaComputeStack/CDKMetadata/Default"
@@ -532,26 +700,26 @@
   }
  },
  "Outputs": {
-  "ExportsOutputFnGetAttExternalALB7DC65DECCanonicalHostedZoneID350DCCE5": {
+  "ExportsOutputFnGetAttPublicNLBED39B775CanonicalHostedZoneID1F8501AC": {
    "Value": {
     "Fn::GetAtt": [
-     "ExternalALB7DC65DEC",
+     "PublicNLBED39B775",
      "CanonicalHostedZoneID"
     ]
    },
    "Export": {
-    "Name": "AvashyaComputeStack:ExportsOutputFnGetAttExternalALB7DC65DECCanonicalHostedZoneID350DCCE5"
+    "Name": "AvashyaComputeStack:ExportsOutputFnGetAttPublicNLBED39B775CanonicalHostedZoneID1F8501AC"
    }
   },
-  "ExportsOutputFnGetAttExternalALB7DC65DECDNSName066CB64B": {
+  "ExportsOutputFnGetAttPublicNLBED39B775DNSName4DFBA9F8": {
    "Value": {
     "Fn::GetAtt": [
-     "ExternalALB7DC65DEC",
+     "PublicNLBED39B775",
      "DNSName"
     ]
    },
    "Export": {
-    "Name": "AvashyaComputeStack:ExportsOutputFnGetAttExternalALB7DC65DECDNSName066CB64B"
+    "Name": "AvashyaComputeStack:ExportsOutputFnGetAttPublicNLBED39B775DNSName4DFBA9F8"
    }
   }
  },

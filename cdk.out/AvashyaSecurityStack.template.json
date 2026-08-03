@@ -43,7 +43,13 @@
       ]
      }
     ],
-    "RoleName": "Avashya-EC2-Web-Role"
+    "RoleName": "Avashya-EC2-Web-Role",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ]
    },
    "Metadata": {
     "aws:cdk:path": "AvashyaSecurityStack/AvashyaEC2WebRole/Resource"
@@ -103,7 +109,13 @@
       ]
      }
     ],
-    "RoleName": "Avashya-EC2-App-Role"
+    "RoleName": "Avashya-EC2-App-Role",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ]
    },
    "Metadata": {
     "aws:cdk:path": "AvashyaSecurityStack/AvashyaEC2AppRole/Resource"
@@ -165,6 +177,12 @@
       "ToPort": 443
      }
     ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
     "VpcId": {
      "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcCC90F1FD1420099A"
     }
@@ -183,6 +201,12 @@
       "CidrIp": "0.0.0.0/0",
       "Description": "Allow all outbound traffic by default",
       "IpProtocol": "-1"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -253,6 +277,12 @@
       "IpProtocol": "-1"
      }
     ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
     "VpcId": {
      "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcCC90F1FD1420099A"
     }
@@ -297,6 +327,12 @@
       "IpProtocol": "-1"
      }
     ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
     "VpcId": {
      "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcCC90F1FD1420099A"
     }
@@ -339,6 +375,12 @@
       "CidrIp": "0.0.0.0/0",
       "Description": "Allow all outbound traffic by default",
       "IpProtocol": "-1"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {

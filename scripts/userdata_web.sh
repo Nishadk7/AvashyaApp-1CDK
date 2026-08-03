@@ -16,13 +16,13 @@ cat << 'EOF' > /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
         "collect_list": [
           {
             "file_path": "/home/ec2-user/AvashyaApp-1/web_tier.log",
-            "log_group_name": "/aws/ec2/AvashyaApp/WebTier",
+            "log_group_name": "/aws/ec2/NishadInternsip-AvashyaApp/WebTier",
             "log_stream_name": "{instance_id}",
             "timestamp_format": "%Y-%m-%d %H:%M:%S"
           },
           {
             "file_path": "/var/log/nginx/access.log",
-            "log_group_name": "/aws/ec2/AvashyaApp/NginxAccess",
+            "log_group_name": "/aws/ec2/NishadInternsip-AvashyaApp/NginxAccess",
             "log_stream_name": "{instance_id}"
           }
         ]

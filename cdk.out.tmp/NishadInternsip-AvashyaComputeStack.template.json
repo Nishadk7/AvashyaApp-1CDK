@@ -1,0 +1,753 @@
+{
+ "Description": "External and Internal Load Balancers, Launch Templates, and Auto Scaling Groups.",
+ "Resources": {
+  "AppTierLogGroup110DED03": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "LogGroupName": "/aws/ec2/NishadInternsip-AvashyaApp/AppTier",
+    "RetentionInDays": 30,
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/AppTierLogGroup/Resource"
+   }
+  },
+  "WebTierLogGroup01872F18": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "LogGroupName": "/aws/ec2/NishadInternsip-AvashyaApp/WebTier",
+    "RetentionInDays": 30,
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/WebTierLogGroup/Resource"
+   }
+  },
+  "NginxAccessLogGroup06F8933E": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "LogGroupName": "/aws/ec2/NishadInternsip-AvashyaApp/NginxAccess",
+    "RetentionInDays": 30,
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/NginxAccessLogGroup/Resource"
+   }
+  },
+  "InternalALB79CA7F1C": {
+   "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+   "Properties": {
+    "LoadBalancerAttributes": [
+     {
+      "Key": "deletion_protection.enabled",
+      "Value": "false"
+     }
+    ],
+    "Name": "nishadinternsip-internal-alb",
+    "Scheme": "internal",
+    "SecurityGroups": [
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaSecurityStack:ExportsOutputFnGetAttInternalALBSGD5E69F64GroupIdEBCF7038"
+     }
+    ],
+    "Subnets": [
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpcPrivateAppSubnet1Subnet7C84DF34AAF10539"
+     },
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpcPrivateAppSubnet2Subnet07A4580CA926733D"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
+    "Type": "application"
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/InternalALB/Resource"
+   }
+  },
+  "InternalALBInternalListener14BE18AA": {
+   "Type": "AWS::ElasticLoadBalancingV2::Listener",
+   "Properties": {
+    "DefaultActions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "InternalALBInternalListenerAppTierTargetsGroup71D49A2A"
+      },
+      "Type": "forward"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "InternalALB79CA7F1C"
+    },
+    "Port": 8000,
+    "Protocol": "HTTP"
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/InternalALB/InternalListener/Resource"
+   }
+  },
+  "InternalALBInternalListenerAppTierTargetsGroup71D49A2A": {
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+   "Properties": {
+    "HealthCheckIntervalSeconds": 30,
+    "HealthCheckPath": "/health",
+    "HealthCheckTimeoutSeconds": 5,
+    "Port": 8000,
+    "Protocol": "HTTP",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
+    "TargetGroupAttributes": [
+     {
+      "Key": "stickiness.enabled",
+      "Value": "false"
+     }
+    ],
+    "TargetType": "instance",
+    "VpcId": {
+     "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpc17C71B67284EDDCC"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/InternalALB/InternalListener/AppTierTargetsGroup/Resource"
+   }
+  },
+  "ExternalALB7DC65DEC": {
+   "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+   "Properties": {
+    "LoadBalancerAttributes": [
+     {
+      "Key": "deletion_protection.enabled",
+      "Value": "false"
+     }
+    ],
+    "Name": "nishadinternsip-external-alb",
+    "Scheme": "internet-facing",
+    "SecurityGroups": [
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaSecurityStack:ExportsOutputFnGetAttExternalALBSGEA0ECB7EGroupIdB1F6EDA4"
+     }
+    ],
+    "Subnets": [
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpcPublicSubnet1Subnet3E4C267AF6163158"
+     },
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpcPublicSubnet2SubnetED5C4BA3989E722F"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
+    "Type": "application"
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/ExternalALB/Resource"
+   }
+  },
+  "ExternalALBExternalListener86CA709B": {
+   "Type": "AWS::ElasticLoadBalancingV2::Listener",
+   "Properties": {
+    "DefaultActions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "ExternalALBExternalListenerWebTierTargetsGroup52C08DBC"
+      },
+      "Type": "forward"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "ExternalALB7DC65DEC"
+    },
+    "Port": 80,
+    "Protocol": "HTTP"
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/ExternalALB/ExternalListener/Resource"
+   }
+  },
+  "ExternalALBExternalListenerWebTierTargetsGroup52C08DBC": {
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+   "Properties": {
+    "HealthCheckIntervalSeconds": 30,
+    "HealthCheckPath": "/",
+    "HealthCheckTimeoutSeconds": 5,
+    "Port": 80,
+    "Protocol": "HTTP",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
+    "TargetGroupAttributes": [
+     {
+      "Key": "stickiness.enabled",
+      "Value": "false"
+     }
+    ],
+    "TargetType": "instance",
+    "VpcId": {
+     "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpc17C71B67284EDDCC"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/ExternalALB/ExternalListener/WebTierTargetsGroup/Resource"
+   }
+  },
+  "PublicNLBED39B775": {
+   "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+   "Properties": {
+    "LoadBalancerAttributes": [
+     {
+      "Key": "deletion_protection.enabled",
+      "Value": "false"
+     }
+    ],
+    "Name": "nishadinternsip-public-nlb",
+    "Scheme": "internet-facing",
+    "Subnets": [
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpcPublicSubnet1Subnet3E4C267AF6163158"
+     },
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpcPublicSubnet2SubnetED5C4BA3989E722F"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
+    "Type": "network"
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/PublicNLB/Resource"
+   }
+  },
+  "PublicNLBNLBListener793698C1": {
+   "Type": "AWS::ElasticLoadBalancingV2::Listener",
+   "Properties": {
+    "DefaultActions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "PublicNLBNLBListenerALBTargetGroupGroup28A9D8C8"
+      },
+      "Type": "forward"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "PublicNLBED39B775"
+    },
+    "Port": 80,
+    "Protocol": "TCP"
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/PublicNLB/NLBListener/Resource"
+   }
+  },
+  "PublicNLBNLBListenerALBTargetGroupGroup28A9D8C8": {
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+   "Properties": {
+    "HealthCheckIntervalSeconds": 30,
+    "HealthCheckPath": "/",
+    "HealthCheckProtocol": "HTTP",
+    "HealthCheckTimeoutSeconds": 10,
+    "Port": 80,
+    "Protocol": "TCP",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
+    "TargetType": "alb",
+    "Targets": [
+     {
+      "Id": {
+       "Ref": "ExternalALB7DC65DEC"
+      },
+      "Port": 80
+     }
+    ],
+    "VpcId": {
+     "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpc17C71B67284EDDCC"
+    }
+   },
+   "DependsOn": [
+    "ExternalALBExternalListener86CA709B",
+    "ExternalALBExternalListenerWebTierTargetsGroup52C08DBC"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/PublicNLB/NLBListener/ALBTargetGroupGroup/Resource"
+   }
+  },
+  "AvashyaWebLTProfileC4C13A98": {
+   "Type": "AWS::IAM::InstanceProfile",
+   "Properties": {
+    "Roles": [
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaSecurityStack:ExportsOutputRefAvashyaEC2WebRole7082D1D3FFAC0407"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/AvashyaWebLT/Profile"
+   }
+  },
+  "AvashyaWebLT60EB7FBB": {
+   "Type": "AWS::EC2::LaunchTemplate",
+   "Properties": {
+    "LaunchTemplateData": {
+     "IamInstanceProfile": {
+      "Arn": {
+       "Fn::GetAtt": [
+        "AvashyaWebLTProfileC4C13A98",
+        "Arn"
+       ]
+      }
+     },
+     "ImageId": {
+      "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestal2023amikernel61x8664C96584B6F00A464EAD1953AFF4B05118Parameter"
+     },
+     "InstanceType": "t3.micro",
+     "SecurityGroupIds": [
+      {
+       "Fn::ImportValue": "NishadInternsip-AvashyaSecurityStack:ExportsOutputFnGetAttWebTierSG54213D40GroupIdDA0C152B"
+      }
+     ],
+     "TagSpecifications": [
+      {
+       "ResourceType": "instance",
+       "Tags": [
+        {
+         "Key": "Name",
+         "Value": "NishadInternsip-AvashyaComputeStack/AvashyaWebLT"
+        },
+        {
+         "Key": "Owner",
+         "Value": "Nishad"
+        }
+       ]
+      },
+      {
+       "ResourceType": "volume",
+       "Tags": [
+        {
+         "Key": "Name",
+         "Value": "NishadInternsip-AvashyaComputeStack/AvashyaWebLT"
+        },
+        {
+         "Key": "Owner",
+         "Value": "Nishad"
+        }
+       ]
+      }
+     ],
+     "UserData": {
+      "Fn::Base64": {
+       "Fn::Join": [
+        "",
+        [
+         "#!/bin/bash\nyum update -y\nyum install -y python3 git nginx amazon-cloudwatch-agent\n\n# CloudWatch Agent Configuration\nmkdir -p /opt/aws/amazon-cloudwatch-agent/etc/\ncat << 'EOF' > /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json\n{\n  \"agent\": {\n    \"metrics_collection_interval\": 60,\n    \"run_as_user\": \"root\"\n  },\n  \"logs\": {\n    \"logs_collected\": {\n      \"files\": {\n        \"collect_list\": [\n          {\n            \"file_path\": \"/home/ec2-user/AvashyaApp-1/web_tier.log\",\n            \"log_group_name\": \"/aws/ec2/NishadInternsip-AvashyaApp/WebTier\",\n            \"log_stream_name\": \"{instance_id}\",\n            \"timestamp_format\": \"%Y-%m-%d %H:%M:%S\"\n          },\n          {\n            \"file_path\": \"/var/log/nginx/access.log\",\n            \"log_group_name\": \"/aws/ec2/NishadInternsip-AvashyaApp/NginxAccess\",\n            \"log_stream_name\": \"{instance_id}\"\n          }\n        ]\n      }\n    }\n  }\n}\nEOF\n\n/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \\\n    -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json\n\n# Clone Repository\ncd /home/ec2-user\nif [ ! -d \"AvashyaApp-1\" ]; then\n    git clone https://github.com/Nishadk7/AvashyaApp-1.git\nfi\ncd AvashyaApp-1\ngit pull origin main\nchown -R ec2-user:ec2-user /home/ec2-user/AvashyaApp-1\n\n# Configure frontend API endpoint\necho 'window.API_BASE = \"/api\";' > /home/ec2-user/AvashyaApp-1/frontend/config.js\n\n# Configure Nginx Reverse Proxy pointing to Internal ALB DNS\ncat << 'EOF' > /etc/nginx/conf.d/avashya_web.conf\nserver {\n    listen 80;\n    server_name _;\n\n    location / {\n        root /home/ec2-user/AvashyaApp-1/frontend;\n        index index.html;\n        try_files $uri $uri/ /index.html;\n    }\n\n    location /api/ {\n        proxy_pass http://",
+         {
+          "Fn::GetAtt": [
+           "InternalALB79CA7F1C",
+           "DNSName"
+          ]
+         },
+         ":8000/api/;\n        proxy_set_header Host $host;\n        proxy_set_header X-Real-IP $remote_addr;\n        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n        proxy_set_header X-Forwarded-Proto $scheme;\n    }\n}\nEOF\n\nchmod 755 /home/ec2-user /home/ec2-user/AvashyaApp-1 /home/ec2-user/AvashyaApp-1/frontend\nsystemctl enable nginx\nsystemctl restart nginx\n\nsu - ec2-user -c \"cd /home/ec2-user/AvashyaApp-1 && nohup python3 -u frontend/server.py > web_tier.log 2>&1 &\"\n"
+        ]
+       ]
+      }
+     }
+    },
+    "LaunchTemplateName": "nishadinternsip-avashya-web-lt",
+    "TagSpecifications": [
+     {
+      "ResourceType": "launch-template",
+      "Tags": [
+       {
+        "Key": "Name",
+        "Value": "NishadInternsip-AvashyaComputeStack/AvashyaWebLT"
+       },
+       {
+        "Key": "Owner",
+        "Value": "Nishad"
+       }
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/AvashyaWebLT/Resource"
+   }
+  },
+  "AvashyaAppLTProfileEFBFD925": {
+   "Type": "AWS::IAM::InstanceProfile",
+   "Properties": {
+    "Roles": [
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaSecurityStack:ExportsOutputRefAvashyaEC2AppRole6D6FD27DB2C07368"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/AvashyaAppLT/Profile"
+   }
+  },
+  "AvashyaAppLTA29E8804": {
+   "Type": "AWS::EC2::LaunchTemplate",
+   "Properties": {
+    "LaunchTemplateData": {
+     "IamInstanceProfile": {
+      "Arn": {
+       "Fn::GetAtt": [
+        "AvashyaAppLTProfileEFBFD925",
+        "Arn"
+       ]
+      }
+     },
+     "ImageId": {
+      "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestal2023amikernel61x8664C96584B6F00A464EAD1953AFF4B05118Parameter"
+     },
+     "InstanceType": "t3.micro",
+     "SecurityGroupIds": [
+      {
+       "Fn::ImportValue": "NishadInternsip-AvashyaSecurityStack:ExportsOutputFnGetAttAppTierSGF01B6512GroupIdA30E624E"
+      }
+     ],
+     "TagSpecifications": [
+      {
+       "ResourceType": "instance",
+       "Tags": [
+        {
+         "Key": "Name",
+         "Value": "NishadInternsip-AvashyaComputeStack/AvashyaAppLT"
+        },
+        {
+         "Key": "Owner",
+         "Value": "Nishad"
+        }
+       ]
+      },
+      {
+       "ResourceType": "volume",
+       "Tags": [
+        {
+         "Key": "Name",
+         "Value": "NishadInternsip-AvashyaComputeStack/AvashyaAppLT"
+        },
+        {
+         "Key": "Owner",
+         "Value": "Nishad"
+        }
+       ]
+      }
+     ],
+     "UserData": {
+      "Fn::Base64": {
+       "Fn::Join": [
+        "",
+        [
+         "#!/bin/bash\nyum update -y\nyum install -y python3 python3-pip git postgresql15 amazon-cloudwatch-agent\n\n# CloudWatch Agent Configuration\nmkdir -p /opt/aws/amazon-cloudwatch-agent/etc/\ncat << 'EOF' > /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json\n{\n  \"agent\": {\n    \"metrics_collection_interval\": 60,\n    \"run_as_user\": \"root\"\n  },\n  \"logs\": {\n    \"logs_collected\": {\n      \"files\": {\n        \"collect_list\": [\n          {\n            \"file_path\": \"/home/ec2-user/AvashyaApp-1/app_tier.log\",\n            \"log_group_name\": \"/aws/ec2/NishadInternsip-AvashyaApp/AppTier\",\n            \"log_stream_name\": \"{instance_id}\",\n            \"timestamp_format\": \"%Y-%m-%d %H:%M:%S\"\n          }\n        ]\n      }\n    }\n  }\n}\nEOF\n\n/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \\\n    -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json\n\n# Export Environment Variables\necho \"export RDS_ENDPOINT='",
+         {
+          "Fn::ImportValue": "NishadInternsip-AvashyaStorageDbStack:ExportsOutputFnGetAttAvashyaPostgresDB2EBF49EFEndpointAddress4F07A22E"
+         },
+         "'\" > /etc/profile.d/avashya_env.sh\necho \"export RDSHOST='",
+         {
+          "Fn::ImportValue": "NishadInternsip-AvashyaStorageDbStack:ExportsOutputFnGetAttAvashyaPostgresDB2EBF49EFEndpointAddress4F07A22E"
+         },
+         "'\" >> /etc/profile.d/avashya_env.sh\necho \"export RDS_HOSTNAME='",
+         {
+          "Fn::ImportValue": "NishadInternsip-AvashyaStorageDbStack:ExportsOutputFnGetAttAvashyaPostgresDB2EBF49EFEndpointAddress4F07A22E"
+         },
+         "'\" >> /etc/profile.d/avashya_env.sh\necho \"export DB_HOST='",
+         {
+          "Fn::ImportValue": "NishadInternsip-AvashyaStorageDbStack:ExportsOutputFnGetAttAvashyaPostgresDB2EBF49EFEndpointAddress4F07A22E"
+         },
+         "'\" >> /etc/profile.d/avashya_env.sh\necho \"export POSTGRES_HOST='",
+         {
+          "Fn::ImportValue": "NishadInternsip-AvashyaStorageDbStack:ExportsOutputFnGetAttAvashyaPostgresDB2EBF49EFEndpointAddress4F07A22E"
+         },
+         "'\" >> /etc/profile.d/avashya_env.sh\necho \"export DATABASE_HOST='",
+         {
+          "Fn::ImportValue": "NishadInternsip-AvashyaStorageDbStack:ExportsOutputFnGetAttAvashyaPostgresDB2EBF49EFEndpointAddress4F07A22E"
+         },
+         "'\" >> /etc/profile.d/avashya_env.sh\necho \"export DBUSER='postgres'\" >> /etc/profile.d/avashya_env.sh\necho \"export DBNAME='avashyadadb'\" >> /etc/profile.d/avashya_env.sh\necho \"export DBPASSWORD='AvashyaPass2026!'\" >> /etc/profile.d/avashya_env.sh\necho \"export S3_BUCKET_NAME='",
+         {
+          "Fn::ImportValue": "NishadInternsip-AvashyaStorageDbStack:ExportsOutputRefAvashyaDropUploadsBucketF81C2A3CFD6D3FB0"
+         },
+         "'\" >> /etc/profile.d/avashya_env.sh\necho \"export AWS_DEFAULT_REGION='ap-south-1'\" >> /etc/profile.d/avashya_env.sh\nchmod +x /etc/profile.d/avashya_env.sh\nsource /etc/profile.d/avashya_env.sh\n\n# Clone Repository\ncd /home/ec2-user\nif [ ! -d \"AvashyaApp-1\" ]; then\n    git clone https://github.com/Nishadk7/AvashyaApp-1.git\nfi\ncd AvashyaApp-1\ngit pull origin main\n\nchown -R ec2-user:ec2-user /home/ec2-user/AvashyaApp-1\n\n# Virtual environment setup and execution (Explicitly source avashya_env.sh)\nsu - ec2-user -c \"cd /home/ec2-user/AvashyaApp-1 && python3 -m venv .venv && source .venv/bin/activate && pip install -r backend/requirements.txt\"\nsu - ec2-user -c \"source /etc/profile.d/avashya_env.sh && cd /home/ec2-user/AvashyaApp-1 && ./aws/start_app_ec2.sh\"\n"
+        ]
+       ]
+      }
+     }
+    },
+    "LaunchTemplateName": "nishadinternsip-avashya-app-lt",
+    "TagSpecifications": [
+     {
+      "ResourceType": "launch-template",
+      "Tags": [
+       {
+        "Key": "Name",
+        "Value": "NishadInternsip-AvashyaComputeStack/AvashyaAppLT"
+       },
+       {
+        "Key": "Owner",
+        "Value": "Nishad"
+       }
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/AvashyaAppLT/Resource"
+   }
+  },
+  "WebTierASG97824F3D": {
+   "Type": "AWS::AutoScaling::AutoScalingGroup",
+   "Properties": {
+    "AutoScalingGroupName": "NishadInternsip-Web-Tier-ASG",
+    "DesiredCapacity": "1",
+    "HealthCheckGracePeriod": 300,
+    "HealthCheckType": "ELB",
+    "LaunchTemplate": {
+     "LaunchTemplateId": {
+      "Ref": "AvashyaWebLT60EB7FBB"
+     },
+     "Version": {
+      "Fn::GetAtt": [
+       "AvashyaWebLT60EB7FBB",
+       "LatestVersionNumber"
+      ]
+     }
+    },
+    "MaxSize": "3",
+    "MinSize": "1",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "PropagateAtLaunch": true,
+      "Value": "Nishad"
+     }
+    ],
+    "TargetGroupARNs": [
+     {
+      "Ref": "ExternalALBExternalListenerWebTierTargetsGroup52C08DBC"
+     }
+    ],
+    "VPCZoneIdentifier": [
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpcPublicSubnet1Subnet3E4C267AF6163158"
+     },
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpcPublicSubnet2SubnetED5C4BA3989E722F"
+     }
+    ]
+   },
+   "UpdatePolicy": {
+    "AutoScalingScheduledAction": {
+     "IgnoreUnmodifiedGroupSizeProperties": true
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/WebTierASG/ASG"
+   }
+  },
+  "WebTierASGScalingPolicyWebASGScaleOnCPU21BBE7B4": {
+   "Type": "AWS::AutoScaling::ScalingPolicy",
+   "Properties": {
+    "AutoScalingGroupName": {
+     "Ref": "WebTierASG97824F3D"
+    },
+    "Cooldown": "100",
+    "EstimatedInstanceWarmup": 100,
+    "PolicyType": "TargetTrackingScaling",
+    "TargetTrackingConfiguration": {
+     "PredefinedMetricSpecification": {
+      "PredefinedMetricType": "ASGAverageCPUUtilization"
+     },
+     "TargetValue": 70
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/WebTierASG/ScalingPolicyWebASGScaleOnCPU/Resource"
+   }
+  },
+  "AppTierASGF17CEA0D": {
+   "Type": "AWS::AutoScaling::AutoScalingGroup",
+   "Properties": {
+    "AutoScalingGroupName": "NishadInternsip-App-Tier-ASG",
+    "DesiredCapacity": "1",
+    "HealthCheckGracePeriod": 300,
+    "HealthCheckType": "ELB",
+    "LaunchTemplate": {
+     "LaunchTemplateId": {
+      "Ref": "AvashyaAppLTA29E8804"
+     },
+     "Version": {
+      "Fn::GetAtt": [
+       "AvashyaAppLTA29E8804",
+       "LatestVersionNumber"
+      ]
+     }
+    },
+    "MaxSize": "3",
+    "MinSize": "1",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "PropagateAtLaunch": true,
+      "Value": "Nishad"
+     }
+    ],
+    "TargetGroupARNs": [
+     {
+      "Ref": "InternalALBInternalListenerAppTierTargetsGroup71D49A2A"
+     }
+    ],
+    "VPCZoneIdentifier": [
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpcPrivateAppSubnet1Subnet7C84DF34AAF10539"
+     },
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpcPrivateAppSubnet2Subnet07A4580CA926733D"
+     }
+    ]
+   },
+   "UpdatePolicy": {
+    "AutoScalingScheduledAction": {
+     "IgnoreUnmodifiedGroupSizeProperties": true
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/AppTierASG/ASG"
+   }
+  },
+  "AppTierASGScalingPolicyAppASGScaleOnCPU6F2EB80C": {
+   "Type": "AWS::AutoScaling::ScalingPolicy",
+   "Properties": {
+    "AutoScalingGroupName": {
+     "Ref": "AppTierASGF17CEA0D"
+    },
+    "Cooldown": "100",
+    "EstimatedInstanceWarmup": 100,
+    "PolicyType": "TargetTrackingScaling",
+    "TargetTrackingConfiguration": {
+     "PredefinedMetricSpecification": {
+      "PredefinedMetricType": "ASGAverageCPUUtilization"
+     },
+     "TargetValue": 70
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/AppTierASG/ScalingPolicyAppASGScaleOnCPU/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/2VOy26DQAz8ltw324a0H5DmUFVCFUq4V85iiMOyRrumKEL8e0WACNSTPQ/PONLR+17vNtCGrcnKraWL7s4CplTQhp/OchF0F3Px6bmp1TF3894rtBCEjGXILmDBGXLFb6S7Q11bMiDELmbIPh4a+vF4gZc+CoJu8sz7Qk/BFyjPH5bwG6VlX66SZ25OmvDirFdoIt3F0DhzTbGqLQg+2ldMrwgqfczdlwsyZCeec7KooBEOBiy5QneHRvg8gueL/7ixPPVgSnLFJCVsydwH/4ro+4FKwEOFgl6dMHDjDfYqucuV3cte79706+YWiLa+cUIV6tM4/wAE3VYZ0gEAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaComputeStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "SsmParameterValueawsserviceamiamazonlinuxlatestal2023amikernel61x8664C96584B6F00A464EAD1953AFF4B05118Parameter": {
+   "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+   "Default": "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64"
+  },
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Outputs": {
+  "ExportsOutputFnGetAttPublicNLBED39B775CanonicalHostedZoneID1F8501AC": {
+   "Value": {
+    "Fn::GetAtt": [
+     "PublicNLBED39B775",
+     "CanonicalHostedZoneID"
+    ]
+   },
+   "Export": {
+    "Name": "NishadInternsip-AvashyaComputeStack:ExportsOutputFnGetAttPublicNLBED39B775CanonicalHostedZoneID1F8501AC"
+   }
+  },
+  "ExportsOutputFnGetAttPublicNLBED39B775DNSName4DFBA9F8": {
+   "Value": {
+    "Fn::GetAtt": [
+     "PublicNLBED39B775",
+     "DNSName"
+    ]
+   },
+   "Export": {
+    "Name": "NishadInternsip-AvashyaComputeStack:ExportsOutputFnGetAttPublicNLBED39B775DNSName4DFBA9F8"
+   }
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

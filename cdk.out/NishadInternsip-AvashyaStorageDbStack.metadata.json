@@ -1,0 +1,191 @@
+{
+  "/NishadInternsip-AvashyaStorageDbStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    },
+    {
+      "type": "aws:cdk:stack-tags",
+      "data": [
+        {
+          "key": "Owner",
+          "value": "Nishad"
+        }
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaStorageDbStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaStorageDbStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaStorageDbStack/AvashyaDropUploadsBucket/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AvashyaDropUploadsBucketF81C2A3C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaStorageDbStack/AvashyaPostgresDB/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AvashyaPostgresDB2EBF49EF"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseInstance2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaStorageDbStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaStorageDbStack/Exports/Output{\"Fn::GetAtt\":[\"AvashyaPostgresDB2EBF49EF\",\"Endpoint.Address\"]}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputFnGetAttAvashyaPostgresDB2EBF49EFEndpointAddress4F07A22E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaStorageDbStack/Exports/Output{\"Ref\":\"AvashyaDropUploadsBucketF81C2A3C\"}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputRefAvashyaDropUploadsBucketF81C2A3CFD6D3FB0"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaStorageDbStack/AvashyaDropUploadsBucket/Policy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AvashyaDropUploadsBucketPolicyD295F4D4"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaStorageDbStack/AvashyaPostgresDB/SubnetGroup/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AvashyaPostgresDBSubnetGroupB3FD89EA"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseInstance2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ]
+}

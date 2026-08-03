@@ -6,7 +6,7 @@ class VpcStack(Stack):
     """
     VPC Stack: Provisions a custom Amazon VPC across 2 Availability Zones
     with 6 subnets total (2 Public, 2 Private App, 2 Isolated Database),
-    attached Internet Gateway, 2 NAT Gateways, and an S3 Gateway VPC Endpoint.
+    attached Internet Gateway, 1 Regional NAT Gateway, and an S3 Gateway VPC Endpoint.
     """
 
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
@@ -15,10 +15,10 @@ class VpcStack(Stack):
         # 1. Custom Amazon VPC (10.0.0.0/16 across 2 AZs)
         self.vpc = ec2.Vpc(
             self,
-            "AvashyaVpc",
+            "NishadInternsip-AvashyaVpc",
             ip_addresses=ec2.IpAddresses.cidr("10.0.0.0/16"),
             max_azs=2,
-            nat_gateways=2,
+            nat_gateways=1,
             subnet_configuration=[
                 ec2.SubnetConfiguration(
                     name="Public",
@@ -37,6 +37,14 @@ class VpcStack(Stack):
                 ),
             ],
         )
+
+        # Enable Regional NAT Gateway availability modeS
+        for child in self.vpc.node.find_all():
+            if isinstance(child, ec2.CfnNatGateway):
+                child.add_property_override("AvailabilityMode", "regional")
+                child.add_property_override("VpcId", self.vpc.vpc_id)
+                child.add_deletion_override("Properties.SubnetId")
+
 
         # 2. Free Amazon S3 Gateway VPC Endpoint attached to Private App Subnets
         self.s3_endpoint = self.vpc.add_gateway_endpoint(

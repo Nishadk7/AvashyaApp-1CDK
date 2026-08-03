@@ -14,7 +14,7 @@ class Route53Stack(Stack):
         self,
         scope: Construct,
         construct_id: str,
-        external_alb: elbv2.IApplicationLoadBalancer,
+        target_lb: elbv2.ILoadBalancer,
         domain_name: str = "avashyaapp.com",
         **kwargs,
     ) -> None:
@@ -28,26 +28,26 @@ class Route53Stack(Stack):
             comment="Public Hosted Zone for AvashyaApp 3-Tier Web Application",
         )
 
-        # 2. Apex Alias A Record (e.g. avashyaapp.com -> External ALB)
+        # 2. Apex Alias A Record (e.g. avashyaapp.com -> Public NLB)
         self.apex_record = route53.ARecord(
             self,
             "ApexAliasRecord",
             zone=self.hosted_zone,
             record_name="",
             target=route53.RecordTarget.from_alias(
-                targets.LoadBalancerTarget(external_alb)
+                targets.LoadBalancerTarget(target_lb)
             ),
-            comment="Apex Alias A-record routing public traffic to External ALB",
+            comment="Apex Alias A-record routing public traffic to Public NLB",
         )
 
-        # 3. WWW Subdomain Alias A Record (e.g. www.avashyaapp.com -> External ALB)
+        # 3. WWW Subdomain Alias A Record (e.g. www.avashyaapp.com -> Public NLB)
         self.www_record = route53.ARecord(
             self,
             "WwwAliasRecord",
             zone=self.hosted_zone,
             record_name="www",
             target=route53.RecordTarget.from_alias(
-                targets.LoadBalancerTarget(external_alb)
+                targets.LoadBalancerTarget(target_lb)
             ),
-            comment="WWW Subdomain Alias A-record routing public traffic to External ALB",
+            comment="WWW Subdomain Alias A-record routing public traffic to Public NLB",
         )

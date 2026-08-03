@@ -27,7 +27,7 @@ class StorageDbStack(Stack):
         self.s3_bucket = s3.Bucket(
             self,
             "AvashyaDropUploadsBucket",
-            bucket_name="avashya-drop-uploads-2026",
+            bucket_name="nishadinternsip-avashya-drop-uploads-2026",
             block_public_access=s3.BlockPublicAccess.BLOCK_ALL,
             encryption=s3.BucketEncryption.S3_MANAGED,
             enforce_ssl=True,
@@ -53,7 +53,7 @@ class StorageDbStack(Stack):
             ),
             publicly_accessible=False,
             security_groups=[rds_sg],
-            multi_az=False,
+            multi_az=True,
             allocated_storage=20,
             max_allocated_storage=100,
             database_name="avashyadadb",

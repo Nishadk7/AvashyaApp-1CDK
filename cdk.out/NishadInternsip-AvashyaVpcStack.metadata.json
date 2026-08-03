@@ -1,0 +1,759 @@
+{
+  "/NishadInternsip-AvashyaVpcStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    },
+    {
+      "type": "aws:cdk:stack-tags",
+      "data": [
+        {
+          "key": "Owner",
+          "value": "Nishad"
+        }
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpc17C71B67"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/IGW": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcIGWE3A78749"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/VPCGW": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcVPCGW0212198B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/Exports/Output{\"Ref\":\"NishadInternsipAvashyaVpc17C71B67\"}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputRefNishadInternsipAvashyaVpc17C71B67284EDDCC"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/Exports/Output{\"Ref\":\"NishadInternsipAvashyaVpcIsolatedDBSubnet1SubnetFA7ED432\"}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputRefNishadInternsipAvashyaVpcIsolatedDBSubnet1SubnetFA7ED43235A89E41"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/Exports/Output{\"Ref\":\"NishadInternsipAvashyaVpcIsolatedDBSubnet2Subnet9FE4C01B\"}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputRefNishadInternsipAvashyaVpcIsolatedDBSubnet2Subnet9FE4C01BBA23859F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/Exports/Output{\"Ref\":\"NishadInternsipAvashyaVpcPrivateAppSubnet1Subnet7C84DF34\"}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputRefNishadInternsipAvashyaVpcPrivateAppSubnet1Subnet7C84DF34AAF10539"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/Exports/Output{\"Ref\":\"NishadInternsipAvashyaVpcPrivateAppSubnet2Subnet07A4580C\"}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputRefNishadInternsipAvashyaVpcPrivateAppSubnet2Subnet07A4580CA926733D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/Exports/Output{\"Ref\":\"NishadInternsipAvashyaVpcPublicSubnet1Subnet3E4C267A\"}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputRefNishadInternsipAvashyaVpcPublicSubnet1Subnet3E4C267AF6163158"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/Exports/Output{\"Ref\":\"NishadInternsipAvashyaVpcPublicSubnet2SubnetED5C4BA3\"}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ExportsOutputRefNishadInternsipAvashyaVpcPublicSubnet2SubnetED5C4BA3989E722F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PublicSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPublicSubnet1Subnet3E4C267A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:257 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PublicSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPublicSubnet1RouteTable0FD3B7C5"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:257 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PublicSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPublicSubnet1RouteTableAssociation1FA1AA34"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:257 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PublicSubnet1/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPublicSubnet1DefaultRouteEA1CADE9"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:197 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PublicSubnet1/EIP": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPublicSubnet1EIP3B989814"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PublicSubnet1/NATGateway": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPublicSubnet1NATGateway6F5C55B0"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PublicSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPublicSubnet2SubnetED5C4BA3"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:257 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PublicSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPublicSubnet2RouteTable6933B948"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:257 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PublicSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPublicSubnet2RouteTableAssociation5AB7D52E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:257 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PublicSubnet2/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPublicSubnet2DefaultRouteFA67C9D0"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:197 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PrivateAppSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPrivateAppSubnet1Subnet7C84DF34"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:260 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PrivateAppSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPrivateAppSubnet1RouteTableE55A6295"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:260 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PrivateAppSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPrivateAppSubnet1RouteTableAssociation2277C962"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:260 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PrivateAppSubnet1/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPrivateAppSubnet1DefaultRoute7AC9113D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PrivateAppSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPrivateAppSubnet2Subnet07A4580C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:260 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PrivateAppSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPrivateAppSubnet2RouteTable11A9E970"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:260 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PrivateAppSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPrivateAppSubnet2RouteTableAssociation2D54BF19"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:260 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/PrivateAppSubnet2/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcPrivateAppSubnet2DefaultRoute92E04BA8"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/IsolatedDBSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcIsolatedDBSubnet1SubnetFA7ED432"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:262 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/IsolatedDBSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcIsolatedDBSubnet1RouteTable4CF4F8DB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:262 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/IsolatedDBSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcIsolatedDBSubnet1RouteTableAssociation662234C7"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:262 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/IsolatedDBSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcIsolatedDBSubnet2Subnet9FE4C01B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:262 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/IsolatedDBSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcIsolatedDBSubnet2RouteTableB1C3A056"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:262 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/IsolatedDBSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcIsolatedDBSubnet2RouteTableAssociationCE5643CB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-85frYv\\node_modules\\aws-cdk-lib\\aws-ec2\\lib\\vpc.js:1:262 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaVpcStack/NishadInternsip-AvashyaVpc/S3GatewayEndpoint/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "NishadInternsipAvashyaVpcS3GatewayEndpoint3A2D022B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addGatewayEndpoint in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmpn_xbpgt4\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ]
+}

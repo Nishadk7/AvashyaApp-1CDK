@@ -19,7 +19,7 @@ env = cdk.Environment(
 # 1. Custom Amazon VPC Stack (10.0.0.0/16 across 2 AZs)
 vpc_stack = VpcStack(
     app,
-    "AvashyaVpcStack",
+    "NishadInternsip-AvashyaVpcStack",
     env=env,
     description="Custom VPC Stack with 6 subnets across 2 AZs, IGW, 2 NAT Gateways, and S3 VPC Endpoint.",
 )
@@ -27,7 +27,7 @@ vpc_stack = VpcStack(
 # 2. IAM Roles & Security Groups Stack (Built From Scratch)
 security_stack = SecurityStack(
     app,
-    "AvashyaSecurityStack",
+    "NishadInternsip-AvashyaSecurityStack",
     vpc=vpc_stack.vpc,
     env=env,
     description="Custom IAM Roles and chained Security Groups for 3-Tier Web Application.",
@@ -36,7 +36,7 @@ security_stack = SecurityStack(
 # 3. Storage & Database Stack (S3 + Multi-AZ RDS PostgreSQL)
 storage_db_stack = StorageDbStack(
     app,
-    "AvashyaStorageDbStack",
+    "NishadInternsip-AvashyaStorageDbStack",
     vpc=vpc_stack.vpc,
     rds_sg=security_stack.rds_db_sg,
     env=env,
@@ -46,7 +46,7 @@ storage_db_stack = StorageDbStack(
 # 4. Compute Stack (External ALB, Web ASG, Internal ALB, App ASG)
 compute_stack = ComputeStack(
     app,
-    "AvashyaComputeStack",
+    "NishadInternsip-AvashyaComputeStack",
     vpc=vpc_stack.vpc,
     external_alb_sg=security_stack.external_alb_sg,
     web_tier_sg=security_stack.web_tier_sg,
@@ -60,15 +60,18 @@ compute_stack = ComputeStack(
     description="External and Internal Load Balancers, Launch Templates, and Auto Scaling Groups.",
 )
 
-# 5. Route 53 Stack (Public Domain DNS -> External ALB)
+# 5. Route 53 Stack (Public Domain DNS -> Public NLB)
 domain_name = app.node.try_get_context("domain_name") or "avashyaapp.com"
 route53_stack = Route53Stack(
     app,
-    "AvashyaRoute53Stack",
-    external_alb=compute_stack.external_alb,
+    "NishadInternsip-AvashyaRoute53Stack",
+    target_lb=compute_stack.public_nlb,
     domain_name=domain_name,
     env=env,
-    description="AWS Route 53 Hosted Zone and Alias A-Records pointing public domain traffic to External ALB.",
+    description="AWS Route 53 Hosted Zone and Alias A-Records pointing public domain traffic to Public NLB.",
 )
+
+# Apply global tag Owner:Nishad to all services across all stacks
+cdk.Tags.of(app).add("Owner", "Nishad")
 
 app.synth()

@@ -20,7 +20,7 @@ class SecurityStack(Stack):
         self.web_tier_role = iam.Role(
             self,
             "AvashyaEC2WebRole",
-            role_name="Avashya-EC2-Web-Role",
+            role_name="NishadInternsip-Avashya-EC2-Web-Role",
             assumed_by=iam.ServicePrincipal("ec2.amazonaws.com"),
             managed_policies=[
                 iam.ManagedPolicy.from_aws_managed_policy_name("CloudWatchAgentServerPolicy"),
@@ -33,7 +33,7 @@ class SecurityStack(Stack):
         self.app_tier_role = iam.Role(
             self,
             "AvashyaEC2AppRole",
-            role_name="Avashya-EC2-App-Role",
+            role_name="NishadInternsip-Avashya-EC2-App-Role",
             assumed_by=iam.ServicePrincipal("ec2.amazonaws.com"),
             managed_policies=[
                 iam.ManagedPolicy.from_aws_managed_policy_name("CloudWatchAgentServerPolicy"),
@@ -65,7 +65,7 @@ class SecurityStack(Stack):
             self,
             "ExternalALBSG",
             vpc=vpc,
-            security_group_name="External-ALB-SG",
+            security_group_name="NishadInternsip-External-ALB-SG",
             description="External Internet-Facing Load Balancer Security Group",
             allow_all_outbound=True,
         )
@@ -85,7 +85,7 @@ class SecurityStack(Stack):
             self,
             "WebTierSG",
             vpc=vpc,
-            security_group_name="Web-Tier-SG",
+            security_group_name="NishadInternsip-Web-Tier-SG",
             description="Web Tier Security Group",
             allow_all_outbound=True,
         )
@@ -105,7 +105,7 @@ class SecurityStack(Stack):
             self,
             "InternalALBSG",
             vpc=vpc,
-            security_group_name="Internal-ALB-SG",
+            security_group_name="NishadInternsip-Internal-ALB-SG",
             description="Internal Application Load Balancer Security Group",
             allow_all_outbound=True,
         )
@@ -120,7 +120,7 @@ class SecurityStack(Stack):
             self,
             "AppTierSG",
             vpc=vpc,
-            security_group_name="App-Tier-SG",
+            security_group_name="NishadInternsip-App-Tier-SG",
             description="App Tier Security Group",
             allow_all_outbound=True,
         )
@@ -135,7 +135,7 @@ class SecurityStack(Stack):
             self,
             "RDSDatabaseSG",
             vpc=vpc,
-            security_group_name="RDS-Database-SG",
+            security_group_name="NishadInternsip-RDS-Database-SG",
             description="Amazon RDS Database Security Group",
             allow_all_outbound=True,
         )

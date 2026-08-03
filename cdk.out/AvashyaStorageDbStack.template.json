@@ -20,6 +20,12 @@
      "IgnorePublicAcls": true,
      "RestrictPublicBuckets": true
     },
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
     "VersioningConfiguration": {
      "Status": "Enabled"
     }
@@ -91,6 +97,12 @@
      {
       "Fn::ImportValue": "AvashyaVpcStack:ExportsOutputRefAvashyaVpcIsolatedDBSubnet2SubnetA9958B2B4ABC5007"
      }
+    ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
     ]
    },
    "Metadata": {
@@ -117,6 +129,12 @@
     "MultiAZ": false,
     "PubliclyAccessible": false,
     "StorageType": "gp2",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
     "VPCSecurityGroups": [
      {
       "Fn::ImportValue": "AvashyaSecurityStack:ExportsOutputFnGetAttRDSDatabaseSGBA197A52GroupId9D765699"

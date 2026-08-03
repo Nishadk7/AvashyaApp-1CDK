@@ -1,0 +1,135 @@
+{
+  "/NishadInternsip-AvashyaRoute53Stack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    },
+    {
+      "type": "aws:cdk:stack-tags",
+      "data": [
+        {
+          "key": "Owner",
+          "value": "Nishad"
+        }
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaRoute53Stack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaRoute53Stack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaRoute53Stack/AvashyaHostedZone/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AvashyaHostedZone16E5F019"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new PublicHostedZone2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaRoute53Stack/ApexAliasRecord/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ApexAliasRecordCCE6BE0E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ARecord2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaRoute53Stack/WwwAliasRecord/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "WwwAliasRecord1B442697"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ARecord2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/NishadInternsip-AvashyaRoute53Stack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmprs97scys\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ]
+}

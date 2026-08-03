@@ -1,0 +1,21 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "d23aa1267ed04815f5677bb5c3d37faef60fc6d87f9dc12d14f08680ea00f1dd": {
+      "displayName": "NishadInternsip-AvashyaStorageDbStack Template",
+      "source": {
+        "path": "NishadInternsip-AvashyaStorageDbStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "372041258366-ap-south-1-5ae9b2d4": {
+          "bucketName": "cdk-hnb659fds-assets-372041258366-ap-south-1",
+          "objectKey": "d23aa1267ed04815f5677bb5c3d37faef60fc6d87f9dc12d14f08680ea00f1dd.json",
+          "region": "ap-south-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::372041258366:role/cdk-hnb659fds-file-publishing-role-372041258366-ap-south-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

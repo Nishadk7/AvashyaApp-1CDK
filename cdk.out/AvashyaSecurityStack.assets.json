@@ -1,18 +1,18 @@
 {
   "version": "53.0.0",
   "files": {
-    "f0d815ffe475d9044f42bf896612cc7b118badb0ffc1278772f96483a2eaf23a": {
+    "b5a3a6ec0b2ad93690e99f91f2d3a2b590fa1249c6476ac161c0920bb98aa4d2": {
       "displayName": "AvashyaSecurityStack Template",
       "source": {
         "path": "AvashyaSecurityStack.template.json",
         "packaging": "file"
       },
       "destinations": {
-        "659071698167-ap-south-1-a5776075": {
-          "bucketName": "cdk-hnb659fds-assets-659071698167-ap-south-1",
-          "objectKey": "f0d815ffe475d9044f42bf896612cc7b118badb0ffc1278772f96483a2eaf23a.json",
+        "372041258366-ap-south-1-7a1f6c6a": {
+          "bucketName": "cdk-hnb659fds-assets-372041258366-ap-south-1",
+          "objectKey": "b5a3a6ec0b2ad93690e99f91f2d3a2b590fa1249c6476ac161c0920bb98aa4d2.json",
           "region": "ap-south-1",
-          "assumeRoleArn": "arn:${AWS::Partition}:iam::659071698167:role/cdk-hnb659fds-file-publishing-role-659071698167-ap-south-1"
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::372041258366:role/cdk-hnb659fds-file-publishing-role-372041258366-ap-south-1"
         }
       }
     }

@@ -1,0 +1,215 @@
+{
+ "Description": "Private S3 Bucket (avashya-drop-uploads-2026) and Multi-AZ RDS PostgreSQL Instance.",
+ "Resources": {
+  "AvashyaDropUploadsBucketF81C2A3C": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "BucketName": "nishadinternsip-avashya-drop-uploads-2026",
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaStorageDbStack/AvashyaDropUploadsBucket/Resource"
+   }
+  },
+  "AvashyaDropUploadsBucketPolicyD295F4D4": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "AvashyaDropUploadsBucketF81C2A3C"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "AvashyaDropUploadsBucketF81C2A3C",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "AvashyaDropUploadsBucketF81C2A3C",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaStorageDbStack/AvashyaDropUploadsBucket/Policy/Resource"
+   }
+  },
+  "AvashyaPostgresDBSubnetGroupB3FD89EA": {
+   "Type": "AWS::RDS::DBSubnetGroup",
+   "Properties": {
+    "DBSubnetGroupDescription": "Subnet group for AvashyaPostgresDB database",
+    "SubnetIds": [
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpcIsolatedDBSubnet1SubnetFA7ED43235A89E41"
+     },
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaVpcStack:ExportsOutputRefNishadInternsipAvashyaVpcIsolatedDBSubnet2Subnet9FE4C01BBA23859F"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaStorageDbStack/AvashyaPostgresDB/SubnetGroup/Default"
+   }
+  },
+  "AvashyaPostgresDB2EBF49EF": {
+   "Type": "AWS::RDS::DBInstance",
+   "Properties": {
+    "AllocatedStorage": "20",
+    "CopyTagsToSnapshot": true,
+    "DBInstanceClass": "db.t3.micro",
+    "DBName": "avashyadadb",
+    "DBSubnetGroupName": {
+     "Ref": "AvashyaPostgresDBSubnetGroupB3FD89EA"
+    },
+    "DeleteAutomatedBackups": true,
+    "EnableIAMDatabaseAuthentication": true,
+    "Engine": "postgres",
+    "EngineVersion": "15",
+    "MasterUserPassword": "AvashyaPass2026!",
+    "MasterUsername": "postgres",
+    "MaxAllocatedStorage": 100,
+    "MultiAZ": true,
+    "PubliclyAccessible": false,
+    "StorageType": "gp2",
+    "Tags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
+    "VPCSecurityGroups": [
+     {
+      "Fn::ImportValue": "NishadInternsip-AvashyaSecurityStack:ExportsOutputFnGetAttRDSDatabaseSGBA197A52GroupId9D765699"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaStorageDbStack/AvashyaPostgresDB/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/2WLQQ6CMBBFz8K+HQX0Akhi3BE5gBlKjRUcDDMNIU3vbkw1Lly9/1/+L6DYl5BnuLA2/aBH10FoBc2gcOFL4BJC5c1gRR2u9EkJzTQ6s/506lHNPUOoUbBDtidiQTJWtb4jK8d58s/3pa7+xHcaY1TNKreJNiXkO9hmd3ZOz57EPSycE19t4VHjuQAAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "NishadInternsip-AvashyaStorageDbStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "ExportsOutputFnGetAttAvashyaPostgresDB2EBF49EFEndpointAddress4F07A22E": {
+   "Value": {
+    "Fn::GetAtt": [
+     "AvashyaPostgresDB2EBF49EF",
+     "Endpoint.Address"
+    ]
+   },
+   "Export": {
+    "Name": "NishadInternsip-AvashyaStorageDbStack:ExportsOutputFnGetAttAvashyaPostgresDB2EBF49EFEndpointAddress4F07A22E"
+   }
+  },
+  "ExportsOutputRefAvashyaDropUploadsBucketF81C2A3CFD6D3FB0": {
+   "Value": {
+    "Ref": "AvashyaDropUploadsBucketF81C2A3C"
+   },
+   "Export": {
+    "Name": "NishadInternsip-AvashyaStorageDbStack:ExportsOutputRefAvashyaDropUploadsBucketF81C2A3CFD6D3FB0"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

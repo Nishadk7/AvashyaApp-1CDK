@@ -12,6 +12,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ]
    },
@@ -37,6 +41,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/PublicSubnet1"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -54,6 +62,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/PublicSubnet1"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -104,6 +116,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/PublicSubnet1"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ]
    },
@@ -127,6 +143,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/PublicSubnet1"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ]
    },
@@ -156,6 +176,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/PublicSubnet2"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -173,6 +197,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/PublicSubnet2"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -223,6 +251,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/PublicSubnet2"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ]
    },
@@ -246,6 +278,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/PublicSubnet2"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ]
    },
@@ -275,6 +311,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/PrivateAppSubnet1"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -292,6 +332,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/PrivateAppSubnet1"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -349,6 +393,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/PrivateAppSubnet2"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -366,6 +414,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/PrivateAppSubnet2"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -423,6 +475,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/IsolatedDBSubnet1"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -440,6 +496,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/IsolatedDBSubnet1"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -482,6 +542,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/IsolatedDBSubnet2"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -499,6 +563,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc/IsolatedDBSubnet2"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcId": {
@@ -530,6 +598,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ]
    },
@@ -578,6 +650,10 @@
      {
       "Key": "Name",
       "Value": "AvashyaVpcStack/AvashyaVpc"
+     },
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
      }
     ],
     "VpcEndpointType": "Gateway",

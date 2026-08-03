@@ -1,5 +1,5 @@
 {
- "Description": "AWS Route 53 Hosted Zone and Alias A-Records pointing public domain traffic to External ALB.",
+ "Description": "AWS Route 53 Hosted Zone and Alias A-Records pointing public domain traffic to Public NLB.",
  "Resources": {
   "AvashyaHostedZone16E5F019": {
    "Type": "AWS::Route53::HostedZone",
@@ -7,6 +7,12 @@
     "HostedZoneConfig": {
      "Comment": "Public Hosted Zone for AvashyaApp 3-Tier Web Application"
     },
+    "HostedZoneTags": [
+     {
+      "Key": "Owner",
+      "Value": "Nishad"
+     }
+    ],
     "Name": "avashyaapp.com."
    },
    "Metadata": {
@@ -23,16 +29,16 @@
        [
         "dualstack.",
         {
-         "Fn::ImportValue": "AvashyaComputeStack:ExportsOutputFnGetAttExternalALB7DC65DECDNSName066CB64B"
+         "Fn::ImportValue": "AvashyaComputeStack:ExportsOutputFnGetAttPublicNLBED39B775DNSName4DFBA9F8"
         }
        ]
       ]
      },
      "HostedZoneId": {
-      "Fn::ImportValue": "AvashyaComputeStack:ExportsOutputFnGetAttExternalALB7DC65DECCanonicalHostedZoneID350DCCE5"
+      "Fn::ImportValue": "AvashyaComputeStack:ExportsOutputFnGetAttPublicNLBED39B775CanonicalHostedZoneID1F8501AC"
      }
     },
-    "Comment": "Apex Alias A-record routing public traffic to External ALB",
+    "Comment": "Apex Alias A-record routing public traffic to Public NLB",
     "HostedZoneId": {
      "Ref": "AvashyaHostedZone16E5F019"
     },
@@ -53,16 +59,16 @@
        [
         "dualstack.",
         {
-         "Fn::ImportValue": "AvashyaComputeStack:ExportsOutputFnGetAttExternalALB7DC65DECDNSName066CB64B"
+         "Fn::ImportValue": "AvashyaComputeStack:ExportsOutputFnGetAttPublicNLBED39B775DNSName4DFBA9F8"
         }
        ]
       ]
      },
      "HostedZoneId": {
-      "Fn::ImportValue": "AvashyaComputeStack:ExportsOutputFnGetAttExternalALB7DC65DECCanonicalHostedZoneID350DCCE5"
+      "Fn::ImportValue": "AvashyaComputeStack:ExportsOutputFnGetAttPublicNLBED39B775CanonicalHostedZoneID1F8501AC"
      }
     },
-    "Comment": "WWW Subdomain Alias A-record routing public traffic to External ALB",
+    "Comment": "WWW Subdomain Alias A-record routing public traffic to Public NLB",
     "HostedZoneId": {
      "Ref": "AvashyaHostedZone16E5F019"
     },

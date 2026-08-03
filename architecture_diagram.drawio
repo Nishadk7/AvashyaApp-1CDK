@@ -1,0 +1,160 @@
+<mxfile host="Electron" modified="2026-07-24T11:40:00.000Z" agent="Mozilla/5.0" version="21.6.8" type="device">
+  <diagram id="AvashyaAppFinal3Tier" name="AWS 3-Tier Multi-AZ Architecture">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Route 53 Edge (Outside VPC) -->
+        <mxCell id="route53" value="AWS Route 53&#xa;(Apex &amp; WWW Alias A-Records)" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#FF9900;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.route_53;" vertex="1" parent="1">
+          <mxGeometry x="15" y="290" width="65" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Internet Gateway Outside VPC -->
+        <mxCell id="igw" value="Internet Gateway" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.internet_gateway;" vertex="1" parent="1">
+          <mxGeometry x="15" y="420" width="65" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- VPC Container -->
+        <mxCell id="vpc" value="Custom VPC: NishadInternsip-AvashyaVpc (10.0.0.0/16)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#8C4FFF;strokeWidth=2.5;fontStyle=1;startSize=30;horizontal=1;collapsible=0;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="60" width="1240" height="780" as="geometry" />
+        </mxCell>
+
+        <!-- Column Header Labels -->
+        <mxCell id="hdr_web" value="Web Tier" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FADBD8;strokeColor=#E74C3C;fontStyle=1;fontSize=14;" vertex="1" parent="vpc">
+          <mxGeometry x="270" y="40" width="220" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_app" value="App Tier" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FADBD8;strokeColor=#E74C3C;fontStyle=1;fontSize=14;" vertex="1" parent="vpc">
+          <mxGeometry x="610" y="40" width="220" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_db" value="Database Tier" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FADBD8;strokeColor=#E74C3C;fontStyle=1;fontSize=14;" vertex="1" parent="vpc">
+          <mxGeometry x="930" y="40" width="220" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Availability Zone 1 Box (Top Row) -->
+        <mxCell id="az1" value="Availability Zone 1 (ap-south-1a)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=1.5;fontStyle=1;startSize=25;collapsible=0;dashed=1;rounded=1;" vertex="1" parent="vpc">
+          <mxGeometry x="200" y="95" width="1010" height="310" as="geometry" />
+        </mxCell>
+
+        <!-- Public Subnet AZ-1 -->
+        <mxCell id="pub_sub1" value="Public Subnet AZ-1 (10.0.1.0/24)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#27AE60;fontStyle=1;startSize=22;rounded=1;" vertex="1" parent="az1">
+          <mxGeometry x="30" y="35" width="280" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2_web1" value="Web EC2 Instance&#xa;(Nginx + SPA Frontend)" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D9A74A;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.ec2;" vertex="1" parent="pub_sub1">
+          <mxGeometry x="105" y="70" width="70" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Private App Subnet AZ-1 -->
+        <mxCell id="app_sub1" value="Private App Subnet AZ-1 (10.0.10.0/24)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;fontStyle=1;startSize=22;rounded=1;" vertex="1" parent="az1">
+          <mxGeometry x="370" y="35" width="280" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2_app1" value="App EC2 Instance&#xa;(FastAPI REST API Port 8000)" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D9A74A;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.ec2;" vertex="1" parent="app_sub1">
+          <mxGeometry x="105" y="70" width="70" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Private DB Subnet AZ-1 -->
+        <mxCell id="db_sub1" value="Private Isolated DB Subnet AZ-1 (10.0.20.0/24)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#F39C12;fontStyle=1;startSize=22;rounded=1;" vertex="1" parent="az1">
+          <mxGeometry x="710" y="35" width="270" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="rds_primary" value="Amazon RDS PostgreSQL&#xa;(Primary DB - Active)" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#3B48CC;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.rds_postgresql_instance;" vertex="1" parent="db_sub1">
+          <mxGeometry x="100" y="70" width="70" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Availability Zone 2 Box (Bottom Row) -->
+        <mxCell id="az2" value="Availability Zone 2 (ap-south-1b)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=1.5;fontStyle=1;startSize=25;collapsible=0;dashed=1;rounded=1;" vertex="1" parent="vpc">
+          <mxGeometry x="200" y="430" width="1010" height="310" as="geometry" />
+        </mxCell>
+
+        <!-- Public Subnet AZ-2 -->
+        <mxCell id="pub_sub2" value="Public Subnet AZ-2 (10.0.2.0/24)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#27AE60;fontStyle=1;startSize=22;rounded=1;" vertex="1" parent="az2">
+          <mxGeometry x="30" y="35" width="280" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2_web2" value="Web EC2 Instance&#xa;(Nginx + SPA Frontend)" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D9A74A;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.ec2;" vertex="1" parent="pub_sub2">
+          <mxGeometry x="105" y="70" width="70" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Private App Subnet AZ-2 -->
+        <mxCell id="app_sub2" value="Private App Subnet AZ-2 (10.0.11.0/24)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;fontStyle=1;startSize=22;rounded=1;" vertex="1" parent="az2">
+          <mxGeometry x="370" y="35" width="280" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2_app2" value="App EC2 Instance&#xa;(FastAPI REST API Port 8000)" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D9A74A;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.ec2;" vertex="1" parent="app_sub2">
+          <mxGeometry x="105" y="70" width="70" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Private DB Subnet AZ-2 -->
+        <mxCell id="db_sub2" value="Private Isolated DB Subnet AZ-2 (10.0.21.0/24)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#F39C12;fontStyle=1;startSize=22;rounded=1;" vertex="1" parent="az2">
+          <mxGeometry x="710" y="35" width="270" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="rds_standby" value="Amazon RDS PostgreSQL&#xa;(Multi-AZ Standby Replica)" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#3B48CC;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.rds_postgresql_instance;" vertex="1" parent="db_sub2">
+          <mxGeometry x="100" y="70" width="70" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Web Tier Auto Scaling Group Box (Dashed Orange Box Spanning AZ1 & AZ2) -->
+        <mxCell id="web_asg_box" value="⚡ Web Tier Auto Scaling Group (NishadInternsip-Web-Tier-ASG)&#xa;[Min: 1, Desired: 1, Max: 3 | Target Tracking CPU &gt; 70%]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#D35400;strokeWidth=3.5;dashed=1;dashPattern=5 5;fontStyle=1;fontSize=11;verticalAlign=top;align=center;fontColor=#D35400;" vertex="1" parent="vpc">
+          <mxGeometry x="215" y="115" width="310" height="610" as="geometry" />
+        </mxCell>
+
+        <!-- App Tier Auto Scaling Group Box (Dashed Orange Box Spanning AZ1 & AZ2) -->
+        <mxCell id="app_asg_box" value="⚡ App Tier Auto Scaling Group (NishadInternsip-App-Tier-ASG)&#xa;[Min: 1, Desired: 1, Max: 3 | Target Tracking CPU &gt; 70%]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#D35400;strokeWidth=3.5;dashed=1;dashPattern=5 5;fontStyle=1;fontSize=11;verticalAlign=top;align=center;fontColor=#D35400;" vertex="1" parent="vpc">
+          <mxGeometry x="555" y="115" width="310" height="610" as="geometry" />
+        </mxCell>
+
+        <!-- Public NLB Icon (Layer 4) -->
+        <mxCell id="pub_nlb" value="Public NLB&#xa;(nishadinternsip-public-nlb)&#xa;[Layer 4 - Port 80]" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.network_load_balancer;" vertex="1" parent="vpc">
+          <mxGeometry x="45" y="380" width="65" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- External ALB Icon (Layer 7) -->
+        <mxCell id="ext_alb" value="External ALB&#xa;(nishadinternsip-external-alb)&#xa;[Layer 7 - Port 80]" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.application_load_balancer;" vertex="1" parent="vpc">
+          <mxGeometry x="135" y="380" width="65" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Internal Load Balancer Icon (Middle Layer 2) -->
+        <mxCell id="int_alb" value="Internal ALB&#xa;(nishadinternsip-internal-alb)&#xa;[Port 8000]" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.application_load_balancer;" vertex="1" parent="vpc">
+          <mxGeometry x="535" y="380" width="65" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Connectors -->
+        <mxCell id="c_r53_igw" edge="1" parent="1" source="route53" target="igw" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#FF9900;strokeWidth=3;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_igw" edge="1" parent="1" source="igw" target="pub_nlb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C4FFF;strokeWidth=3;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_nlb_alb" edge="1" parent="vpc" source="pub_nlb" target="ext_alb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C4FFF;strokeWidth=3;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_alb_web1" edge="1" parent="vpc" source="ext_alb" target="ec2_web1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#00A4E4;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_alb_web2" edge="1" parent="vpc" source="ext_alb" target="ec2_web2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#00A4E4;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_web1_int" edge="1" parent="vpc" source="ec2_web1" target="int_alb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#3F8624;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_web2_int" edge="1" parent="vpc" source="ec2_web2" target="int_alb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#3F8624;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_int_app1" edge="1" parent="vpc" source="int_alb" target="ec2_app1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#00A4E4;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_int_app2" edge="1" parent="vpc" source="int_alb" target="ec2_app2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#00A4E4;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_app1_db" edge="1" parent="vpc" source="ec2_app1" target="rds_primary" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D32;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_app2_db" edge="1" parent="vpc" source="ec2_app2" target="rds_primary" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D32;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_db_sync" edge="1" parent="vpc" source="rds_primary" target="rds_standby" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#3498DB;strokeWidth=3;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

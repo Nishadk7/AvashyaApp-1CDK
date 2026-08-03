@@ -35,10 +35,13 @@ class ComputeStack(Stack):
         # ----------------------------------------------------------------------
         # 1. CloudWatch Log Groups
         # ----------------------------------------------------------------------
+        # ----------------------------------------------------------------------
+        # 1. CloudWatch Log Groups
+        # ----------------------------------------------------------------------
         self.app_log_group = logs.LogGroup(
             self,
             "AppTierLogGroup",
-            log_group_name="/aws/ec2/AvashyaApp/AppTier",
+            log_group_name="/aws/ec2/NishadInternsip-AvashyaApp/AppTier",
             retention=logs.RetentionDays.ONE_MONTH,
             removal_policy=RemovalPolicy.DESTROY,
         )
@@ -46,7 +49,7 @@ class ComputeStack(Stack):
         self.web_log_group = logs.LogGroup(
             self,
             "WebTierLogGroup",
-            log_group_name="/aws/ec2/AvashyaApp/WebTier",
+            log_group_name="/aws/ec2/NishadInternsip-AvashyaApp/WebTier",
             retention=logs.RetentionDays.ONE_MONTH,
             removal_policy=RemovalPolicy.DESTROY,
         )
@@ -54,7 +57,7 @@ class ComputeStack(Stack):
         self.nginx_access_log_group = logs.LogGroup(
             self,
             "NginxAccessLogGroup",
-            log_group_name="/aws/ec2/AvashyaApp/NginxAccess",
+            log_group_name="/aws/ec2/NishadInternsip-AvashyaApp/NginxAccess",
             retention=logs.RetentionDays.ONE_MONTH,
             removal_policy=RemovalPolicy.DESTROY,
         )
@@ -65,7 +68,7 @@ class ComputeStack(Stack):
         self.internal_alb = elbv2.ApplicationLoadBalancer(
             self,
             "InternalALB",
-            load_balancer_name="avashya-internal-alb",
+            load_balancer_name="nishadinternsip-internal-alb",
             vpc=vpc,
             internet_facing=False,
             security_group=internal_alb_sg,
@@ -86,7 +89,7 @@ class ComputeStack(Stack):
         self.external_alb = elbv2.ApplicationLoadBalancer(
             self,
             "ExternalALB",
-            load_balancer_name="avashya-external-alb",
+            load_balancer_name="nishadinternsip-external-alb",
             vpc=vpc,
             internet_facing=True,
             security_group=external_alb_sg,
@@ -97,6 +100,37 @@ class ComputeStack(Stack):
             "ExternalListener",
             port=80,
             open=True,
+        )
+
+        # ----------------------------------------------------------------------
+        # 3b. Public Network Load Balancer (Public Subnets -> External ALB)
+        # ----------------------------------------------------------------------
+        from aws_cdk import aws_elasticloadbalancingv2_targets as targets_v2
+
+        self.public_nlb = elbv2.NetworkLoadBalancer(
+            self,
+            "PublicNLB",
+            load_balancer_name="nishadinternsip-public-nlb",
+            vpc=vpc,
+            internet_facing=True,
+            vpc_subnets=ec2.SubnetSelection(subnet_type=ec2.SubnetType.PUBLIC),
+        )
+
+        self.nlb_listener = self.public_nlb.add_listener(
+            "NLBListener",
+            port=80,
+        )
+
+        self.nlb_listener.add_targets(
+            "ALBTargetGroup",
+            port=80,
+            targets=[targets_v2.AlbListenerTarget(self.external_listener)],
+            health_check=elbv2.HealthCheck(
+                protocol=elbv2.Protocol.HTTP,
+                path="/",
+                interval=Duration.seconds(30),
+                timeout=Duration.seconds(10),
+            ),
         )
 
         # ----------------------------------------------------------------------
@@ -133,7 +167,7 @@ class ComputeStack(Stack):
         web_launch_template = ec2.LaunchTemplate(
             self,
             "AvashyaWebLT",
-            launch_template_name="avashya-web-lt",
+            launch_template_name="nishadinternsip-avashya-web-lt",
             instance_type=ec2.InstanceType.of(
                 ec2.InstanceClass.T3, ec2.InstanceSize.MICRO
             ),
@@ -148,7 +182,7 @@ class ComputeStack(Stack):
         app_launch_template = ec2.LaunchTemplate(
             self,
             "AvashyaAppLT",
-            launch_template_name="avashya-app-lt",
+            launch_template_name="nishadinternsip-avashya-app-lt",
             instance_type=ec2.InstanceType.of(
                 ec2.InstanceClass.T3, ec2.InstanceSize.MICRO
             ),
@@ -168,7 +202,7 @@ class ComputeStack(Stack):
         self.web_asg = autoscaling.AutoScalingGroup(
             self,
             "WebTierASG",
-            auto_scaling_group_name="Web-Tier-ASG",
+            auto_scaling_group_name="NishadInternsip-Web-Tier-ASG",
             vpc=vpc,
             vpc_subnets=ec2.SubnetSelection(subnet_type=ec2.SubnetType.PUBLIC),
             launch_template=web_launch_template,
@@ -182,7 +216,7 @@ class ComputeStack(Stack):
         self.app_asg = autoscaling.AutoScalingGroup(
             self,
             "AppTierASG",
-            auto_scaling_group_name="App-Tier-ASG",
+            auto_scaling_group_name="NishadInternsip-App-Tier-ASG",
             vpc=vpc,
             vpc_subnets=ec2.SubnetSelection(
                 subnet_type=ec2.SubnetType.PRIVATE_WITH_EGRESS

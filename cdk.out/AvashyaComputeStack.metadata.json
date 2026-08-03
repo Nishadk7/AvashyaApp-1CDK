@@ -3,12 +3,21 @@
     {
       "type": "aws:cdk:creationStack",
       "data": [
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
+      ]
+    },
+    {
+      "type": "aws:cdk:stack-tags",
+      "data": [
+        {
+          "key": "Owner",
+          "value": "Nishad"
+        }
       ]
     }
   ],
@@ -21,11 +30,11 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...new LaunchTemplate2 in aws-cdk-lib...",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -35,16 +44,16 @@
       "type": "aws:cdk:warning",
       "data": "desiredCapacity has been configured. Be aware this will reset the size of your AutoScalingGroup on every deployment. See https://github.com/aws/aws-cdk/issues/5215 [ack: @aws-cdk/aws-autoscaling:desiredCapacitySet]",
       "trace": [
-        "Annotations.addMessage (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-JicjuD\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:2399)",
-        "Annotations.addWarningV2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-JicjuD\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:1087)",
-        "new AutoScalingGroup2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-JicjuD\\node_modules\\aws-cdk-lib\\aws-autoscaling\\lib\\auto-scaling-group.js:1:26952)",
-        "new AutoScalingGroup2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-JicjuD\\node_modules\\aws-cdk-lib\\core\\lib\\no-box-stack-traces.js:1:345)",
-        "new AutoScalingGroup2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-JicjuD\\node_modules\\aws-cdk-lib\\core\\lib\\prop-injectable.js:1:855)",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Annotations.addMessage (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-e66q21\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:2399)",
+        "Annotations.addWarningV2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-e66q21\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:1087)",
+        "new AutoScalingGroup2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-e66q21\\node_modules\\aws-cdk-lib\\aws-autoscaling\\lib\\auto-scaling-group.js:1:26952)",
+        "new AutoScalingGroup2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-e66q21\\node_modules\\aws-cdk-lib\\core\\lib\\no-box-stack-traces.js:1:345)",
+        "new AutoScalingGroup2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-e66q21\\node_modules\\aws-cdk-lib\\core\\lib\\prop-injectable.js:1:855)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "process.processImmediate (node:internal/timers:483:21)"
       ]
     }
@@ -54,16 +63,16 @@
       "type": "aws:cdk:warning",
       "data": "desiredCapacity has been configured. Be aware this will reset the size of your AutoScalingGroup on every deployment. See https://github.com/aws/aws-cdk/issues/5215 [ack: @aws-cdk/aws-autoscaling:desiredCapacitySet]",
       "trace": [
-        "Annotations.addMessage (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-JicjuD\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:2399)",
-        "Annotations.addWarningV2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-JicjuD\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:1087)",
-        "new AutoScalingGroup2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-JicjuD\\node_modules\\aws-cdk-lib\\aws-autoscaling\\lib\\auto-scaling-group.js:1:26952)",
-        "new AutoScalingGroup2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-JicjuD\\node_modules\\aws-cdk-lib\\core\\lib\\no-box-stack-traces.js:1:345)",
-        "new AutoScalingGroup2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-JicjuD\\node_modules\\aws-cdk-lib\\core\\lib\\prop-injectable.js:1:855)",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Annotations.addMessage (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-e66q21\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:2399)",
+        "Annotations.addWarningV2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-e66q21\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:1087)",
+        "new AutoScalingGroup2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-e66q21\\node_modules\\aws-cdk-lib\\aws-autoscaling\\lib\\auto-scaling-group.js:1:26952)",
+        "new AutoScalingGroup2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-e66q21\\node_modules\\aws-cdk-lib\\core\\lib\\no-box-stack-traces.js:1:345)",
+        "new AutoScalingGroup2 (C:\\Users\\nishad\\AppData\\Local\\Temp\\jsii-kernel-e66q21\\node_modules\\aws-cdk-lib\\core\\lib\\prop-injectable.js:1:855)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "process.processImmediate (node:internal/timers:483:21)"
       ]
     }
@@ -77,12 +86,12 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...App.synth in aws-cdk-lib...",
-        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
-        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
-        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -96,12 +105,12 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...App.synth in aws-cdk-lib...",
-        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
-        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
-        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -115,11 +124,11 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...new LogGroup2 in aws-cdk-lib...",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -133,11 +142,11 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...new LogGroup2 in aws-cdk-lib...",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -151,11 +160,11 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...new LogGroup2 in aws-cdk-lib...",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -169,11 +178,11 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...new ApplicationLoadBalancer2 in aws-cdk-lib...",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -187,11 +196,29 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...new ApplicationLoadBalancer2 in aws-cdk-lib...",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaComputeStack/PublicNLB/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PublicNLBED39B775"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new NetworkLoadBalancer2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -205,11 +232,11 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...new LaunchTemplate2 in aws-cdk-lib...",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -223,11 +250,11 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...new LaunchTemplate2 in aws-cdk-lib...",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -241,11 +268,11 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...new LaunchTemplate2 in aws-cdk-lib...",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -259,11 +286,11 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...new LaunchTemplate2 in aws-cdk-lib...",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -277,11 +304,11 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...new AutoScalingGroup2 in aws-cdk-lib...",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -295,11 +322,11 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...new AutoScalingGroup2 in aws-cdk-lib...",
-        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:61273)",
-        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:52004)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "Kernel._Kernel_create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:61273)",
+        "Kernel.create (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:52004)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -313,50 +340,50 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...App.synth in aws-cdk-lib...",
-        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
-        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
-        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
   ],
-  "/AvashyaComputeStack/Exports/Output{\"Fn::GetAtt\":[\"ExternalALB7DC65DEC\",\"CanonicalHostedZoneID\"]}": [
+  "/AvashyaComputeStack/Exports/Output{\"Fn::GetAtt\":[\"PublicNLBED39B775\",\"CanonicalHostedZoneID\"]}": [
     {
       "type": "aws:cdk:logicalId",
-      "data": "ExportsOutputFnGetAttExternalALB7DC65DECCanonicalHostedZoneID350DCCE5"
+      "data": "ExportsOutputFnGetAttPublicNLBED39B775CanonicalHostedZoneID1F8501AC"
     },
     {
       "type": "aws:cdk:creationStack",
       "data": [
         "...App.synth in aws-cdk-lib...",
-        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
-        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
-        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
   ],
-  "/AvashyaComputeStack/Exports/Output{\"Fn::GetAtt\":[\"ExternalALB7DC65DEC\",\"DNSName\"]}": [
+  "/AvashyaComputeStack/Exports/Output{\"Fn::GetAtt\":[\"PublicNLBED39B775\",\"DNSName\"]}": [
     {
       "type": "aws:cdk:logicalId",
-      "data": "ExportsOutputFnGetAttExternalALB7DC65DECDNSName066CB64B"
+      "data": "ExportsOutputFnGetAttPublicNLBED39B775DNSName4DFBA9F8"
     },
     {
       "type": "aws:cdk:creationStack",
       "data": [
         "...App.synth in aws-cdk-lib...",
-        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
-        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
-        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -370,12 +397,12 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...WrappedClass.<anonymous> in aws-cdk-lib...",
-        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
-        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
-        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -389,12 +416,31 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...WrappedClass.<anonymous> in aws-cdk-lib...",
-        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
-        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
-        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaComputeStack/PublicNLB/NLBListener/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PublicNLBNLBListener793698C1"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -408,12 +454,12 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...WrappedClass.scaleOnCpuUtilization in aws-cdk-lib...",
-        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
-        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
-        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -427,12 +473,12 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...WrappedClass.scaleOnCpuUtilization in aws-cdk-lib...",
-        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
-        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
-        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -446,12 +492,12 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...WrappedClass.<anonymous> in aws-cdk-lib...",
-        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
-        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
-        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }
@@ -465,12 +511,31 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...WrappedClass.<anonymous> in aws-cdk-lib...",
-        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:5434)",
-        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:69992)",
-        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:54294)",
-        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:212888)",
-        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211943)",
-        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp6cn6uvgd\\lib\\program.js:1:211987)",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/AvashyaComputeStack/PublicNLB/NLBListener/ALBTargetGroupGroup/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PublicNLBNLBListenerALBTargetGroupGroup28A9D8C8"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:543 (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:69992)",
+        "Kernel.invoke (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:54294)",
+        "KernelHost.processRequest (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:212888)",
+        "KernelHost.run (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211943)",
+        "Immediate._onImmediate (C:\\Users\\nishad\\AppData\\Local\\Temp\\tmp3q7y06lb\\lib\\program.js:1:211987)",
         "...node internals..."
       ]
     }

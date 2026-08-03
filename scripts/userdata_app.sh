@@ -16,7 +16,7 @@ cat << 'EOF' > /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
         "collect_list": [
           {
             "file_path": "/home/ec2-user/AvashyaApp-1/app_tier.log",
-            "log_group_name": "/aws/ec2/AvashyaApp/AppTier",
+            "log_group_name": "/aws/ec2/NishadInternsip-AvashyaApp/AppTier",
             "log_stream_name": "{instance_id}",
             "timestamp_format": "%Y-%m-%d %H:%M:%S"
           }

@@ -1,0 +1,21 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "683e5bf98d7af27e8439b1274fcc95437b20d2207a290aadef2d750661758d1a": {
+      "displayName": "NishadInternsip-AvashyaComputeStack Template",
+      "source": {
+        "path": "NishadInternsip-AvashyaComputeStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "372041258366-ap-south-1-d6eac1b6": {
+          "bucketName": "cdk-hnb659fds-assets-372041258366-ap-south-1",
+          "objectKey": "683e5bf98d7af27e8439b1274fcc95437b20d2207a290aadef2d750661758d1a.json",
+          "region": "ap-south-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::372041258366:role/cdk-hnb659fds-file-publishing-role-372041258366-ap-south-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
