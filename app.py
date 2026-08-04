@@ -24,52 +24,51 @@ vpc_stack = VpcStack(
     description="Custom VPC Stack with 6 subnets across 2 AZs, IGW, 2 NAT Gateways, and S3 VPC Endpoint.",
 )
 
-# 2. IAM Roles & Security Groups Stack (Built From Scratch)
+# 2. IAM Roles & Security Groups Stack (Single ALB -> App Tier -> RDS Chaining)
 security_stack = SecurityStack(
     app,
     "NishadInternsip-AvashyaSecurityStack",
     vpc=vpc_stack.vpc,
     env=env,
-    description="Custom IAM Roles and chained Security Groups for 3-Tier Web Application.",
+    description="Custom IAM Roles and chained Security Groups for S3 Web + EC2 App Architecture.",
 )
 
-# 3. Storage & Database Stack (S3 + Multi-AZ RDS PostgreSQL)
+# 3. Storage & Database Stack (S3 Upload Bucket + Web Frontend S3 Bucket + Single-AZ RDS)
 storage_db_stack = StorageDbStack(
     app,
     "NishadInternsip-AvashyaStorageDbStack",
     vpc=vpc_stack.vpc,
     rds_sg=security_stack.rds_db_sg,
     env=env,
-    description="Private S3 Bucket (avashya-drop-uploads-2026) and Multi-AZ RDS PostgreSQL Instance.",
+    description="Private S3 Buckets (web frontend & file drop) and Single-AZ RDS PostgreSQL Instance.",
 )
 
-# 4. Compute Stack (External ALB, Web ASG, Internal ALB, App ASG)
+# 4. Compute Stack (Single ALB, CloudFront Distribution, App Tier ASG in Private Subnets)
 compute_stack = ComputeStack(
     app,
     "NishadInternsip-AvashyaComputeStack",
     vpc=vpc_stack.vpc,
-    external_alb_sg=security_stack.external_alb_sg,
-    web_tier_sg=security_stack.web_tier_sg,
-    internal_alb_sg=security_stack.internal_alb_sg,
+    alb_sg=security_stack.alb_sg,
     app_tier_sg=security_stack.app_tier_sg,
-    web_tier_role=security_stack.web_tier_role,
     app_tier_role=security_stack.app_tier_role,
+    web_frontend_bucket=storage_db_stack.web_frontend_bucket,
     rds_endpoint=storage_db_stack.db_instance.db_instance_endpoint_address,
     s3_bucket_name=storage_db_stack.s3_bucket.bucket_name,
     env=env,
-    description="External and Internal Load Balancers, Launch Templates, and Auto Scaling Groups.",
+    description="Single ALB, CloudFront Distribution (S3 + ALB), and App Tier Auto Scaling Group.",
 )
 
-# 5. Route 53 Stack (Public Domain DNS -> Public NLB)
-domain_name = app.node.try_get_context("domain_name") or "avashyaapp.com"
-route53_stack = Route53Stack(
-    app,
-    "NishadInternsip-AvashyaRoute53Stack",
-    target_lb=compute_stack.public_nlb,
-    domain_name=domain_name,
-    env=env,
-    description="AWS Route 53 Hosted Zone and Alias A-Records pointing public domain traffic to Public NLB.",
-)
+# 5. Route 53 Stack (Optional - Points domain to CloudFront Distribution)
+domain_name = app.node.try_get_context("domain_name")
+if domain_name:
+    route53_stack = Route53Stack(
+        app,
+        "NishadInternsip-AvashyaRoute53Stack",
+        distribution=compute_stack.distribution,
+        domain_name=domain_name,
+        env=env,
+        description="AWS Route 53 Hosted Zone and Alias A-Records pointing public domain traffic to CloudFront.",
+    )
 
 # Apply global tag Owner:Nishad to all services across all stacks
 cdk.Tags.of(app).add("Owner", "Nishad")

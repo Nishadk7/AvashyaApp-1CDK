@@ -1,0 +1,87 @@
+================================================================================
+AVASHYA APP - COMPLETE END-TO-END ARCHITECTURE & NETWORK FLOW
+================================================================================
+
+1. CLIENT / END USER
+   - Network Location: External Public Internet
+   - Protocol: HTTPS (TCP Port 443) / DNS (UDP/TCP Port 53)
+   - Description: User enters domain (e.g., https://yourdomain.com or https://d123.cloudfront.net) in web browser.
+
+2. AWS ROUTE 53 (PUBLIC HOSTED ZONE)
+   - Network Location: AWS Global Edge Network (Outside VPC)
+   - Protocol: DNS (UDP/TCP Port 53)
+   - Action: Resolves domain name via Apex & WWW Alias A-Records pointing directly to CloudFront distribution endpoint.
+
+3. AMAZON CLOUDFRONT (CONTENT DELIVERY NETWORK)
+   - Network Location: AWS Global Edge Network (600+ Edge Locations worldwide)
+   - Protocol: HTTPS (TLS 1.2/1.3 over TCP Port 443)
+   - Security: Origin Access Control (OAC) with SigV4 signing
+   - Routing Logic:
+     a) Default Behavior (/*): Routes static asset requests to S3 Web Frontend Bucket.
+     b) API Behavior (/api/*): Forwards dynamic REST API requests to Application Load Balancer (ALB).
+
+4. AMAZON S3 WEB FRONTEND BUCKET (Static Assets)
+   - Bucket Name: nishadinternsip-avashya-web-frontend-2026
+   - Network Location: AWS S3 Regional Storage Service (100% Block Public Access)
+   - Protocol: HTTPS (AWS REST API / SigV4 GET requests over TLS Port 443)
+   - Action: Delivers static HTML, CSS, JavaScript, and asset files to CloudFront edge for browser rendering.
+
+5. APPLICATION LOAD BALANCER (ALB)
+   - Load Balancer Name: nishadinternsip-alb
+   - Network Location: AWS VPC - Public Subnets (AZ-1: 10.0.1.0/24 | AZ-2: 10.0.2.0/24)
+   - Security Group: NishadInternsip-ALB-SG (Inbound HTTP Port 80 / HTTPS Port 443 from Internet / CloudFront)
+   - Protocol: HTTP (TCP Port 80 Listener)
+   - Action: Accepts /api/* traffic from CloudFront and load-balances across active EC2 targets in private subnets on target port 8000.
+
+6. APP TIER AUTO SCALING w (EC2 INSTANCES)
+   - ASG Name: NishadInternsip-App-Tier-ASG
+   - Network Location: AWS VPC - Private App Subnets with Egress (AZ-1: 10.0.10.0/24 | AZ-2: 10.0.11.0/24)
+   - Security Group: NishadInternsip-App-Tier-SG (Inbound TCP Port 8000 ONLY from ALB-SG)
+   - IAM Role: NishadInternsip-Avashya-EC2-App-Role
+   - Protocol: HTTP / TCP Port 8000 (Python FastAPI / Gunicorn Web Application Server)
+   - Action: Processes API requests, executes business logic, queries database, and manages file uploads.
+
+7. AMAZON RDS POSTGRESQL DATABASE
+   - Database Name: avashyadadb (Instance: AvashyaPostgresDB)
+   - Network Location: AWS VPC - Private Isolated Database Subnets (AZ-1: 10.0.20.0/24 | AZ-2: 10.0.21.0/24)
+   - Security Group: NishadInternsip-RDS-Database-SG (Inbound PostgreSQL Port 5432 ONLY from App-Tier-SG)
+   - Protocol: PostgreSQL Wire Protocol (TCP Port 5432)
+   - Action: Stores relational application data with static credentials and IAM Database Authentication.
+
+8. S3 GATEWAY VPC ENDPOINT
+   - Endpoint Name: S3GatewayEndpoint
+   - Network Location: AWS VPC Route Table Attachment (Attached to Private App Subnets)
+   - Protocol: Private AWS Network Route (Prefix List Routing over TLS Port 443)
+   - Action: Routes file upload traffic from private EC2 instances directly to S3 without traversing the Internet or NAT Gateway.
+
+9. AMAZON S3 FILE DROP BUCKET (User Uploads)
+   - Bucket Name: nishadinternsip-avashya-drop-uploads-2026
+   - Network Location: AWS S3 Regional Storage Service (100% Private Access)
+   - Protocol: HTTPS (AWS S3 PUT/GET REST API over TLS Port 443 via VPC Endpoint)
+   - Action: Receives user uploaded documents and images from EC2 instances.
+
+10. REGIONAL NAT GATEWAY & INTERNET GATEWAY (Egress Only)
+    - Network Location: AWS VPC - Public Subnet (10.0.1.0/24) with Elastic IP
+    - Protocol: Outbound IPv4 NAT (TCP/UDP Port 80/443 Egress)
+    - Action: Provides outbound-only internet connectivity for private EC2 instances (software package updates, pip installs, external webhooks). Blocks inbound connection attempts.
+
+11. AMAZON CLOUDWATCH LOG GROUP
+    - Log Group Path: /aws/ec2/NishadInternsip-AvashyaApp/AppTier
+    - Network Location: AWS CloudWatch Regional Endpoint (Outside VPC)
+    - Protocol: HTTPS (CloudWatch Logs API over TLS Port 443 via NAT Gateway)
+    - Action: Collects and stores application and system execution logs streamed from EC2 instances.
+
+================================================================================
+SECURITY GROUP CHAINING SUMMARY (LEAST PRIVILEGE)
+================================================================================
+[Internet / CloudFront]
+       │
+       ▼ (HTTP 80 / HTTPS 443)
+[ALB Security Group: NishadInternsip-ALB-SG]
+       │
+       ▼ (TCP 8000 ONLY)
+[App Tier Security Group: NishadInternsip-App-Tier-SG]
+       │
+       ▼ (PostgreSQL 5432 ONLY)
+[RDS Database Security Group: NishadInternsip-RDS-Database-SG]
+================================================================================

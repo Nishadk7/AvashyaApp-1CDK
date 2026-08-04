@@ -1,90 +1,67 @@
 graph TD
     %% Styling & Colors
-    classDef r53 fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff;
-    classDef igw fill:#8C4FFF,stroke:#232F3E,stroke-width:2px,color:#fff;
-    classDef nlb fill:#8C4FFF,stroke:#232F3E,stroke-width:2px,color:#fff;
-    classDef alb fill:#00A4E4,stroke:#232F3E,stroke-width:2px,color:#fff;
-    classDef ec2 fill:#D9A74A,stroke:#232F3E,stroke-width:2px,color:#fff;
-    classDef rds fill:#3B48CC,stroke:#232F3E,stroke-width:2px,color:#fff;
-    classDef s3 fill:#E05243,stroke:#232F3E,stroke-width:2px,color:#fff;
+    classDef r53 fill:#8C4FFF,stroke:#232F3E,stroke-width:2px,color:#fff;
+    classDef cf fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff;
+    classDef s3 fill:#1D893B,stroke:#232F3E,stroke-width:2px,color:#fff;
+    classDef alb fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff;
+    classDef ec2 fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff;
+    classDef rds fill:#C71385,stroke:#232F3E,stroke-width:2px,color:#fff;
+    classDef cw fill:#C71385,stroke:#232F3E,stroke-width:2px,color:#fff;
+    classDef vpcfill fill:#ffffff,stroke:#8C4FFF,stroke-width:2px,stroke-dasharray: 5 5;
 
-    %% Global Edge Layer (Outside VPC)
-    subgraph GlobalEdge["Global Edge & DNS Layer"]
+    %% Global Edge & DNS Layer (Outside VPC)
+    subgraph EdgeLayer["Global Edge & Content Delivery Layer"]
         Route53["AWS Route 53<br/>(Apex & WWW Alias A-Records)"]:::r53
-        IGW["Internet Gateway"]:::igw
+        CloudFront["Amazon CloudFront Distribution<br/>(OAC Enabled - HTTPS)"]:::cf
+        WebBucket[("S3 Web Frontend Bucket<br/>(nishadinternsip-avashya-web-frontend-2026)")]:::s3
+    end
+
+    %% Storage Layer (Outside VPC / Gateway Endpoint)
+    subgraph StorageLayer["S3 Data Storage Layer"]
+        UploadBucket[("S3 File Drop Bucket<br/>(nishadinternsip-avashya-drop-uploads-2026)")]:::s3
     end
 
     %% Custom Amazon VPC
-    subgraph VPC["Custom VPC: NishadInternsip-AvashyaVpc (10.0.0.0/16)"]
+    subgraph VPC["Custom VPC: NishadInternsip-AvashyaVpc (10.0.0.0/16 across 2 AZs)"]
         
-        PublicNLB["Public Network Load Balancer<br/>(nishadinternsip-public-nlb)"]:::nlb
-        ExtALB["External Application Load Balancer<br/>(nishadinternsip-external-alb)"]:::alb
-
-        %% Availability Zone 1
-        subgraph AZ1["Availability Zone 1 (ap-south-1a)"]
-            subgraph PubSub1["Public Subnet AZ-1 (10.0.1.0/24)"]
-                WebEC2_AZ1["Web EC2 Instance<br/>(Nginx + SPA Frontend)"]:::ec2
-            end
-
-            subgraph AppSub1["Private App Subnet AZ-1 (10.0.10.0/24)"]
-                AppEC2_AZ1["App EC2 Instance<br/>(FastAPI REST API Port 8000)"]:::ec2
-            end
-
-            subgraph DBSub1["Private DB Subnet AZ-1 (10.0.20.0/24)"]
-                RDS_Primary["Amazon RDS PostgreSQL<br/>(Primary DB Instance - Active)"]:::rds
-            end
+        %% Public Subnet
+        subgraph PublicSubnets["Public Subnets (AZ-1: 10.0.1.0/24 | AZ-2: 10.0.2.0/24)"]
+            ALB["Single Application Load Balancer<br/>(nishadinternsip-alb - Port 80)"]:::alb
+            NAT["Regional NAT Gateway & IGW"]:::r53
         end
 
-        IntALB["Internal Application Load Balancer<br/>(nishadinternsip-internal-alb)"]:::alb
-
-        %% Availability Zone 2
-        subgraph AZ2["Availability Zone 2 (ap-south-1b)"]
-            subgraph PubSub2["Public Subnet AZ-2 (10.0.2.0/24)"]
-                WebEC2_AZ2["Web EC2 Instance<br/>(Nginx + SPA Frontend)"]:::ec2
+        %% Private App Subnets
+        subgraph AppSubnets["Private App Subnets with Egress (AZ-1: 10.0.10.0/24 | AZ-2: 10.0.11.0/24)"]
+            subgraph AppASG["⚡ App Tier Auto Scaling Group (NishadInternsip-App-Tier-ASG)<br/>[Min: 1, Max: 3 - CPU > 70%]"]
+                EC2_App1["App EC2 Instance (AZ-1)<br/>(Python API Server - Port 8000)"]:::ec2
+                EC2_App2["App EC2 Instance (AZ-2)<br/>(Python API Server - Port 8000)"]:::ec2
             end
-
-            subgraph AppSub2["Private App Subnet AZ-2 (10.0.11.0/24)"]
-                AppEC2_AZ2["App EC2 Instance<br/>(FastAPI REST API Port 8000)"]:::ec2
-            end
-
-            subgraph DBSub2["Private DB Subnet AZ-2 (10.0.21.0/24)"]
-                RDS_Standby["Amazon RDS PostgreSQL<br/>(Multi-AZ Standby Replica)"]:::rds
-            end
+            S3Endpoint["S3 Gateway VPC Endpoint"]:::s3
         end
 
-        %% Auto Scaling Group Highlights
-        subgraph WebASG["⚡ Web Tier Auto Scaling Group (NishadInternsip-Web-Tier-ASG) [Min: 1, Max: 3 - CPU > 70%]"]
-            WebEC2_AZ1
-            WebEC2_AZ2
-        end
-
-        subgraph AppASG["⚡ App Tier Auto Scaling Group (NishadInternsip-App-Tier-ASG) [Min: 1, Max: 3 - CPU > 70%]"]
-            AppEC2_AZ1
-            AppEC2_AZ2
+        %% Private DB Subnets
+        subgraph DBSubnets["Private Isolated DB Subnets (AZ-1: 10.0.20.0/24 | AZ-2: 10.0.21.0/24)"]
+            RDS_DB["Amazon RDS PostgreSQL<br/>(Single-AZ Instance - Port 5432)"]:::rds
         end
 
     end
 
-    %% Storage Outside VPC
-    S3Bucket[("Amazon S3 Bucket<br/>(nishadinternsip-avashya-drop-uploads-2026)")]:::s3
+    %% Monitoring Layer
+    CloudWatch["Amazon CloudWatch Log Group<br/>(/aws/ec2/.../AppTier)"]:::cw
 
-    %% Flow Connections
-    Route53 -->|Alias A-Record| IGW
-    IGW --> PublicNLB
-    PublicNLB --> ExtALB
-    ExtALB --> WebEC2_AZ1
-    ExtALB --> WebEC2_AZ2
+    %% Traffic & Request Flows
+    Route53 -->|1. Alias DNS Resolution| CloudFront
+    CloudFront -->|2. Default Behavior /*| WebBucket
+    CloudFront -->|3. Behavior /api/*| ALB
 
-    WebEC2_AZ1 --> IntALB
-    WebEC2_AZ2 --> IntALB
+    ALB -->|4. Security Group Rule (Port 8000)| EC2_App1
+    ALB -->|4. Security Group Rule (Port 8000)| EC2_App2
 
-    IntALB --> AppEC2_AZ1
-    IntALB --> AppEC2_AZ2
+    EC2_App1 -->|5. Security Group Rule (Port 5432)| RDS_DB
+    EC2_App2 -->|5. Security Group Rule (Port 5432)| RDS_DB
 
-    AppEC2_AZ1 -->|SQL Reads/Writes| RDS_Primary
-    AppEC2_AZ2 -->|SQL Reads/Writes| RDS_Primary
+    EC2_App1 -->|6. S3 Gateway Endpoint| UploadBucket
+    EC2_App2 -->|6. S3 Gateway Endpoint| UploadBucket
 
-    RDS_Primary -.->|Synchronous Multi-AZ Block Replication| RDS_Standby
-
-    AppEC2_AZ1 -.->|File Uploads| S3Bucket
-    AppEC2_AZ2 -.->|File Uploads| S3Bucket
+    EC2_App1 -.->|7. Stream Application Logs| CloudWatch
+    EC2_App2 -.->|7. Stream Application Logs| CloudWatch

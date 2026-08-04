@@ -1,0 +1,232 @@
+<mxfile host="Electron" version="29.6.1">
+  <diagram name="AvashyaApp Architecture" id="avashya-arch-1">
+    <mxGraphModel dx="1200" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Header Title Block -->
+        <mxCell id="title" value="AvashyaApp - Production Cloud Architecture" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;fontStyle=1;fontFamily=Helvetica;fontColor=light-dark(#232F3E, #FAFAFA);" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="550" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Static Web Tier (S3 + CloudFront OAC) | Scalable Compute (Single ALB + Private EC2 ASG) | Single-AZ RDS PostgreSQL" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontStyle=0;fontFamily=Helvetica;fontColor=light-dark(#545B64, #D5DBDB);" vertex="1" parent="1">
+          <mxGeometry x="30" y="55" width="800" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="separator" value="" style="line;strokeWidth=2;html=1;strokeColor=#FF9900;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="1140" height="10" as="geometry" />
+        </mxCell>
+
+        <!-- Sidebar Legend Box (Sharp Corners: rounded=0) -->
+        <mxCell id="legend-box" value="Architecture Components &amp; Flow Legend" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=13;fontColor=light-dark(#232F3E, #FAFAFA);fillColor=light-dark(#F8F9FA, #1F2A37);strokeColor=light-dark(#D5DBDB, #374151);strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="870" y="100" width="300" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-1" value="1. Route 53 Public Hosted Zone&#10;Apex &amp; WWW Alias A-records point to CloudFront" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontColor=light-dark(#545B64, #D5DBDB);" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="35" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-2" value="2. CloudFront CDN &amp; OAC&#10;Routes /* to S3 Web Bucket &amp; /api/* to ALB" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontColor=light-dark(#545B64, #D5DBDB);" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="80" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-3" value="3. S3 Web Frontend Bucket&#10;Stores static HTML/JS/CSS assets (100% Private)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontColor=light-dark(#545B64, #D5DBDB);" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="125" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-4" value="4. Public Subnet &amp; Single ALB&#10;Inbound HTTP/HTTPS (Port 80) from CloudFront" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontColor=light-dark(#545B64, #D5DBDB);" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="170" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-5" value="5. Private App Subnet EC2 ASG&#10;Python API servers in private subnets (Port 8000)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontColor=light-dark(#545B64, #D5DBDB);" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="215" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-6" value="6. Private DB Subnet RDS PostgreSQL&#10;Single-AZ DB instance (Port 5432) with SG chaining" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontColor=light-dark(#545B64, #D5DBDB);" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="260" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-7" value="7. S3 File Drop Upload Bucket&#10;Stores user uploads via S3 Gateway VPC Endpoint" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontColor=light-dark(#545B64, #D5DBDB);" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="305" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-8" value="8. CloudWatch Log Group&#10;App Tier logs streamed to /aws/ec2/.../AppTier" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontFamily=Helvetica;fontSize=10;fontColor=light-dark(#545B64, #D5DBDB);" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="350" width="280" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- User / Internet Client (rounded=0, icon size: 48x48) -->
+        <mxCell id="user-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#F2F4F4, #2D3748);strokeColor=light-dark(#D5DBDB, #4A5568);strokeWidth=1.5;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="200" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="user-icon" value="" style="outlineConnect=0;fontColor=#FFFFFF;gradientColor=none;fillColor=#545B64;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.user;pointerEvents=1;" vertex="1" parent="user-box">
+          <mxGeometry x="31" y="14" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="user-lbl" value="End User / Client" style="text;html=1;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=10;fontStyle=1;fontColor=light-dark(#232F3E, #FAFAFA);" vertex="1" parent="user-box">
+          <mxGeometry x="0" y="68" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Route 53 DNS (rounded=0, icon size: 48x48) -->
+        <mxCell id="r53-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#EDF7ED, #1C3322);strokeColor=#8C4FFF;strokeWidth=1.5;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="100" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="r53-icon" value="" style="outlineConnect=0;fontColor=#FFFFFF;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.route_53;pointerEvents=1;" vertex="1" parent="r53-box">
+          <mxGeometry x="31" y="14" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="r53-lbl" value="Route 53 DNS&#10;(Hosted Zone)" style="text;html=1;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=10;fontStyle=1;fontColor=light-dark(#232F3E, #FAFAFA);" vertex="1" parent="r53-box">
+          <mxGeometry x="0" y="68" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- CloudFront CDN (rounded=0, icon size: 48x48) -->
+        <mxCell id="cf-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#FDF2E9, #3A2312);strokeColor=#FF9900;strokeWidth=1.5;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="280" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cf-icon" value="" style="outlineConnect=0;fontColor=#FFFFFF;gradientColor=none;fillColor=#FF9900;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudfront;pointerEvents=1;" vertex="1" parent="cf-box">
+          <mxGeometry x="31" y="14" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="cf-lbl" value="CloudFront CDN&#10;(OAC Enabled)" style="text;html=1;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=10;fontStyle=1;fontColor=light-dark(#232F3E, #FAFAFA);" vertex="1" parent="cf-box">
+          <mxGeometry x="0" y="68" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- S3 Web Bucket (rounded=0, icon size: 48x48) -->
+        <mxCell id="s3-web-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#E8F8F5, #143731);strokeColor=#1D893B;strokeWidth=1.5;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="460" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-web-icon" value="" style="outlineConnect=0;fontColor=#FFFFFF;gradientColor=none;fillColor=#1D893B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;pointerEvents=1;" vertex="1" parent="s3-web-box">
+          <mxGeometry x="31" y="14" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-web-lbl" value="S3 Web Frontend&#10;(Static Assets)" style="text;html=1;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=10;fontStyle=1;fontColor=light-dark(#232F3E, #FAFAFA);" vertex="1" parent="s3-web-box">
+          <mxGeometry x="0" y="68" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- AWS VPC Group Container (Sharp Corners: rounded=0, reduced margins) -->
+        <mxCell id="vpc-group" value="Custom VPC: NishadInternsip-AvashyaVpc (10.0.0.0/16 - 2 AZs)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#8C4FFF0D, #8C4FFF0D);strokeColor=#8C4FFF;strokeWidth=1.5;dashed=1;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;fontColor=#8C4FFF;fontSize=12;fontStyle=1;container=1;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="100" width="530" height="660" as="geometry" />
+        </mxCell>
+
+        <!-- Public Subnet Group Container (rounded=0) -->
+        <mxCell id="pub-subnet" value="Public Subnets (ALB SG: Port 80/443)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#2488140D, #2488140D);strokeColor=#248814;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontColor=#248814;fontSize=10;fontStyle=1;container=1;pointerEvents=1;" vertex="1" parent="vpc-group">
+          <mxGeometry x="15" y="30" width="150" height="610" as="geometry" />
+        </mxCell>
+        <mxCell id="alb-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF, #2D3748);strokeColor=#FF9900;strokeWidth=1.5;pointerEvents=1;" vertex="1" parent="pub-subnet">
+          <mxGeometry x="20" y="150" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="alb-icon" value="" style="outlineConnect=0;fontColor=#FFFFFF;gradientColor=none;fillColor=#FF9900;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.elastic_load_balancing;pointerEvents=1;" vertex="1" parent="alb-box">
+          <mxGeometry x="31" y="14" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="alb-lbl" value="Single Application&#10;Load Balancer" style="text;html=1;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=10;fontStyle=1;fontColor=light-dark(#232F3E, #FAFAFA);" vertex="1" parent="alb-box">
+          <mxGeometry x="0" y="68" width="110" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- NAT Gateway Box (rounded=0, icon size: 48x48) -->
+        <mxCell id="nat-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF, #2D3748);strokeColor=#8C4FFF;strokeWidth=1.5;pointerEvents=1;" vertex="1" parent="pub-subnet">
+          <mxGeometry x="20" y="330" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="nat-icon" value="" style="outlineConnect=0;fontColor=#FFFFFF;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.networking_and_content_delivery;pointerEvents=1;" vertex="1" parent="nat-box">
+          <mxGeometry x="31" y="14" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="nat-lbl" value="Regional NAT Gateway&#10;&amp; Internet Gateway" style="text;html=1;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=10;fontStyle=1;fontColor=light-dark(#232F3E, #FAFAFA);" vertex="1" parent="nat-box">
+          <mxGeometry x="0" y="68" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Private App Subnet Group Container (rounded=0) -->
+        <mxCell id="app-subnet" value="Private App Subnets (App SG: Port 8000)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#147EBA0D, #147EBA0D);strokeColor=#147EBA;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontColor=#147EBA;fontSize=10;fontStyle=1;container=1;pointerEvents=1;" vertex="1" parent="vpc-group">
+          <mxGeometry x="180" y="30" width="160" height="610" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF, #2D3748);strokeColor=#FF9900;strokeWidth=1.5;pointerEvents=1;" vertex="1" parent="app-subnet">
+          <mxGeometry x="25" y="150" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2-icon" value="" style="outlineConnect=0;fontColor=#FFFFFF;gradientColor=none;fillColor=#FF9900;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;pointerEvents=1;" vertex="1" parent="ec2-box">
+          <mxGeometry x="31" y="14" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2-lbl" value="App Tier ASG&#10;(EC2 Instances)" style="text;html=1;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=10;fontStyle=1;fontColor=light-dark(#232F3E, #FAFAFA);" vertex="1" parent="ec2-box">
+          <mxGeometry x="0" y="68" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- S3 Gateway Endpoint Box (rounded=0, icon size: 48x48) -->
+        <mxCell id="vpce-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF, #2D3748);strokeColor=#1D893B;strokeWidth=1.5;pointerEvents=1;" vertex="1" parent="app-subnet">
+          <mxGeometry x="25" y="330" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="vpce-icon" value="" style="outlineConnect=0;fontColor=#FFFFFF;gradientColor=none;fillColor=#1D893B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;pointerEvents=1;" vertex="1" parent="vpce-box">
+          <mxGeometry x="31" y="14" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="vpce-lbl" value="S3 Gateway&#10;VPC Endpoint" style="text;html=1;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=10;fontStyle=1;fontColor=light-dark(#232F3E, #FAFAFA);" vertex="1" parent="vpce-box">
+          <mxGeometry x="0" y="68" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- CloudWatch Log Group Box (rounded=0, icon size: 48x48) -->
+        <mxCell id="cw-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#FFF5F7, #361A22);strokeColor=#C71385;strokeWidth=1.5;pointerEvents=1;" vertex="1" parent="app-subnet">
+          <mxGeometry x="25" y="475" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cw-icon" value="" style="outlineConnect=0;fontColor=#FFFFFF;gradientColor=none;fillColor=#C71385;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch_2;pointerEvents=1;" vertex="1" parent="cw-box">
+          <mxGeometry x="31" y="14" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="cw-lbl" value="CloudWatch Log Group&#10;(/aws/ec2/.../AppTier)" style="text;html=1;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=10;fontStyle=1;fontColor=light-dark(#232F3E, #FAFAFA);" vertex="1" parent="cw-box">
+          <mxGeometry x="0" y="68" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Private Database Subnet Group Container (rounded=0) -->
+        <mxCell id="db-subnet" value="Isolated DB Subnets (RDS SG: Port 5432)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#3B48590D, #3B48590D);strokeColor=#3B4859;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontColor=#3B4859;fontSize=10;fontStyle=1;container=1;pointerEvents=1;" vertex="1" parent="vpc-group">
+          <mxGeometry x="355" y="30" width="160" height="610" as="geometry" />
+        </mxCell>
+        <mxCell id="rds-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF, #2D3748);strokeColor=#C71385;strokeWidth=1.5;pointerEvents=1;" vertex="1" parent="db-subnet">
+          <mxGeometry x="25" y="150" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="rds-icon" value="" style="outlineConnect=0;fontColor=#FFFFFF;gradientColor=none;fillColor=#C71385;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.rds;pointerEvents=1;" vertex="1" parent="rds-box">
+          <mxGeometry x="31" y="14" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="rds-lbl" value="Amazon RDS PostgreSQL&#10;(Single-AZ Instance)" style="text;html=1;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=10;fontStyle=1;fontColor=light-dark(#232F3E, #FAFAFA);" vertex="1" parent="rds-box">
+          <mxGeometry x="0" y="68" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- S3 File Drop Upload Bucket (Outside VPC - rounded=0, icon size: 48x48) -->
+        <mxCell id="s3-drop-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#E8F8F5, #143731);strokeColor=#1D893B;strokeWidth=1.5;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="640" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-drop-icon" value="" style="outlineConnect=0;fontColor=#FFFFFF;gradientColor=none;fillColor=#1D893B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;pointerEvents=1;" vertex="1" parent="s3-drop-box">
+          <mxGeometry x="31" y="14" width="48" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-drop-lbl" value="S3 File Drop Bucket&#10;(avashya-drop-uploads)" style="text;html=1;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=10;fontStyle=1;fontColor=light-dark(#232F3E, #FAFAFA);" vertex="1" parent="s3-drop-box">
+          <mxGeometry x="0" y="68" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- EDGES & CONNECTIONS -->
+        <!-- User to R53 -->
+        <mxCell id="e1" value="DNS Query" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=9;fontColor=light-dark(#232F3E, #FAFAFA);strokeColor=#8C4FFF;strokeWidth=1.5;" edge="1" parent="1" source="user-box" target="r53-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- User to CloudFront -->
+        <mxCell id="e2" value="HTTPS Request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=9;fontColor=light-dark(#232F3E, #FAFAFA);strokeColor=#FF9900;strokeWidth=1.5;" edge="1" parent="1" source="user-box" target="cf-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CloudFront to S3 Web -->
+        <mxCell id="e3" value="/* (Static Assets)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=9;fontColor=light-dark(#232F3E, #FAFAFA);strokeColor=#1D893B;strokeWidth=1.5;" edge="1" parent="1" source="cf-box" target="s3-web-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CloudFront to ALB -->
+        <mxCell id="e4" value="/api/* (Forward)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=9;fontColor=light-dark(#232F3E, #FAFAFA);strokeColor=#FF9900;strokeWidth=1.5;" edge="1" parent="1" source="cf-box" target="alb-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ALB to EC2 -->
+        <mxCell id="e5" value="TCP 8000" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=9;fontColor=light-dark(#232F3E, #FAFAFA);strokeColor=#248814;strokeWidth=1.5;" edge="1" parent="1" source="alb-box" target="ec2-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- EC2 to RDS -->
+        <mxCell id="e6" value="PostgreSQL 5432" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=9;fontColor=light-dark(#232F3E, #FAFAFA);strokeColor=#147EBA;strokeWidth=1.5;" edge="1" parent="1" source="ec2-box" target="rds-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- EC2 to VPCE -->
+        <mxCell id="e7" value="S3 Uploads" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=9;fontColor=light-dark(#232F3E, #FAFAFA);strokeColor=#1D893B;strokeWidth=1.5;" edge="1" parent="1" source="ec2-box" target="vpce-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- VPCE to S3 Drop Bucket -->
+        <mxCell id="e8" value="VPC Endpoint Connection" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=9;fontColor=light-dark(#232F3E, #FAFAFA);strokeColor=#1D893B;strokeWidth=1.5;" edge="1" parent="1" source="vpce-box" target="s3-drop-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- EC2 to CW -->
+        <mxCell id="e9" value="Stream Logs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=9;fontColor=light-dark(#232F3E, #FAFAFA);strokeColor=#C71385;strokeWidth=1.5;dashed=1;" edge="1" parent="1" source="ec2-box" target="cw-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

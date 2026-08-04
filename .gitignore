@@ -1,0 +1,7 @@
+*.pyc
+__pycache__/
+cdk.out/
+.venv/
+.env
+node_modules/
+.DS_Store
