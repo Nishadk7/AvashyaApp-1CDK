@@ -15,23 +15,23 @@ AVASHYA APP - COMPLETE END-TO-END ARCHITECTURE & NETWORK FLOW
 3. AMAZON CLOUDFRONT (CONTENT DELIVERY NETWORK)
    - Network Location: AWS Global Edge Network (600+ Edge Locations worldwide)
    - Protocol: HTTPS (TLS 1.2/1.3 over TCP Port 443)
-   - Security: Origin Access Control (OAC) with SigV4 signing
+   - Security: Origin Access Control (OAC) with SigV4 signing & CloudFront VPC Origin
    - Routing Logic:
-     a) Default Behavior (/*): Routes static asset requests to S3 Web Frontend Bucket.
-     b) API Behavior (/api/*): Forwards dynamic REST API requests to Application Load Balancer (ALB).
+     a) Default Behavior (/*): Routes static asset requests to S3 Web Frontend Bucket via OAC.
+     b) API Behavior (/api/*): Forwards dynamic REST API requests to Private ALB via CloudFront VPC Origin.
 
 4. AMAZON S3 WEB FRONTEND BUCKET (Static Assets)
-   - Bucket Name: nishadinternsip-avashya-web-frontend-2026
+   - Bucket Name: nishadinternsip-avashya-web-frontend-2026-v2
    - Network Location: AWS S3 Regional Storage Service (100% Block Public Access)
    - Protocol: HTTPS (AWS REST API / SigV4 GET requests over TLS Port 443)
    - Action: Delivers static HTML, CSS, JavaScript, and asset files to CloudFront edge for browser rendering.
 
-5. PRIVATE APPLICATION LOAD BALANCER (PRIVATE ALB) & CLOUDFRONT VPC ORIGIN
-   - Load Balancer Name: nishadinternsip-alb (Internal / Private ALB)
-   - Network Location: AWS VPC - Private App Subnets (AZ-1: 10.0.10.0/24 | AZ-2: 10.0.11.0/24)
-   - Security Group: NishadInternsip-ALB-SG (Inbound HTTP Port 80 / HTTPS Port 443 from CloudFront VPC Origin)
-   - Protocol: HTTP (TCP Port 80 Listener via AWS CloudFront VPC Origin)
-   - Action: Receives private /api/* ingress directly from CloudFront VPC Origin interface and load-balances across EC2 targets on port 8000. zero public IP exposure.
+5. PRIVATE APPLICATION LOAD BALANCER (ALB)
+   - Load Balancer Name: nishadinternsip-alb
+   - Network Location: AWS VPC - Private App Subnets with Egress (AZ-1: 10.0.10.0/24 | AZ-2: 10.0.11.0/24)
+   - Security Group: NishadInternsip-ALB-SG (Inbound HTTP Port 80 / HTTPS Port 443 ONLY from VPC / CloudFront VPC Origin)
+   - Protocol: HTTP (TCP Port 80 Listener)
+   - Action: Accepts /api/* traffic from CloudFront VPC Origin ENIs and load-balances across active EC2 targets on target port 8000.
 
 6. APP TIER AUTO SCALING w (EC2 INSTANCES)
    - ASG Name: NishadInternsip-App-Tier-ASG

@@ -49,7 +49,7 @@ class ComputeStack(Stack):
         )
 
         # ----------------------------------------------------------------------
-        # 2. Private Application Load Balancer (Private Subnets with Egress)
+        # 2. Single Application Load Balancer (Private Subnets via CloudFront VPC Origin)
         # ----------------------------------------------------------------------
         self.alb = elbv2.ApplicationLoadBalancer(
             self,
@@ -64,7 +64,7 @@ class ComputeStack(Stack):
         self.alb_listener = self.alb.add_listener(
             "ALBListener",
             port=80,
-            open=True,
+            open=False,
         )
 
         # ----------------------------------------------------------------------
@@ -157,16 +157,16 @@ class ComputeStack(Stack):
         )
 
         s3_origin = origins.S3BucketOrigin(web_frontend_bucket)
-        alb_vpc_origin = origins.VpcOrigin.with_application_load_balancer(
+        alb_origin = origins.VpcOrigin.with_application_load_balancer(
             self.alb,
             protocol_policy=cloudfront.OriginProtocolPolicy.HTTP_ONLY,
-            vpc_origin_name="nishadinternsip-avashya-private-alb-vpc-origin",
+            vpc_origin_name="nishadinternsip-alb-vpc-origin",
         )
 
         self.distribution = cloudfront.Distribution(
             self,
             "AvashyaCloudFrontDist",
-            comment="CloudFront Distribution for Avashya Web Tier (S3) & Private App Tier (VPC Origin ALB)",
+            comment="CloudFront Distribution for Avashya Web Tier (S3) & App Tier (ALB)",
             default_root_object="index.html",
             default_behavior=cloudfront.BehaviorOptions(
                 origin=s3_origin,
@@ -175,7 +175,7 @@ class ComputeStack(Stack):
             ),
             additional_behaviors={
                 "/api/*": cloudfront.BehaviorOptions(
-                    origin=alb_vpc_origin,
+                    origin=alb_origin,
                     viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
                     cache_policy=cloudfront.CachePolicy.CACHING_DISABLED,
                     allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,

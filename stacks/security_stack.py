@@ -56,14 +56,14 @@ class SecurityStack(Stack):
             allow_all_outbound=True,
         )
         self.alb_sg.add_ingress_rule(
-            ec2.Peer.any_ipv4(),
+            ec2.Peer.ipv4(vpc.vpc_cidr_block),
             ec2.Port.tcp(80),
-            "Allow HTTP 80 traffic from CloudFront VPC Origin",
+            "Allow HTTP 80 traffic from VPC / CloudFront VPC Origin",
         )
         self.alb_sg.add_ingress_rule(
-            ec2.Peer.any_ipv4(),
+            ec2.Peer.ipv4(vpc.vpc_cidr_block),
             ec2.Port.tcp(443),
-            "Allow HTTPS 443 traffic from CloudFront VPC Origin",
+            "Allow HTTPS 443 traffic from VPC / CloudFront VPC Origin",
         )
 
         # 2. App-Tier-SG: Inbound TCP (8000) ONLY from ALB-SG
