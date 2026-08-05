@@ -8,6 +8,7 @@ from aws_cdk import aws_elasticloadbalancingv2 as elbv2
 from aws_cdk import aws_iam as iam
 from aws_cdk import aws_logs as logs
 from aws_cdk import aws_s3 as s3
+from aws_cdk import aws_s3_deployment as s3deploy
 from constructs import Construct
 
 
@@ -206,6 +207,22 @@ class ComputeStack(Stack):
         cfn_dist.add_property_override(
             "DistributionConfig.Origins.0.S3OriginConfig.OriginAccessIdentity",
             "",
+        )
+
+        # ----------------------------------------------------------------------
+        # 7. S3 Bucket Deployment (Automated Upload of Frontend HTML/JS Assets)
+        # ----------------------------------------------------------------------
+        frontend_dir = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..", "..", "AvashyaApp#1", "frontend")
+        )
+        if os.path.exists(frontend_dir):
+            s3deploy.BucketDeployment(
+                self,
+                "DeployWebFrontendAssets",
+                sources=[s3deploy.Source.asset(frontend_dir)],
+                destination_bucket=web_frontend_bucket,
+                distribution=self.distribution,
+                distribution_paths=["/*"],
         )
 
         # Outputs

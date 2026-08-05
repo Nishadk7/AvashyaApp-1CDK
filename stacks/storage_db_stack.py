@@ -35,6 +35,7 @@ class StorageDbStack(Stack):
             enforce_ssl=True,
             versioned=True,
             removal_policy=RemovalPolicy.DESTROY,
+            auto_delete_objects=True,
         )
 
         # Web Tier Static Frontend Bucket (Served via CloudFront)
@@ -47,6 +48,7 @@ class StorageDbStack(Stack):
             enforce_ssl=True,
             versioned=True,
             removal_policy=RemovalPolicy.DESTROY,
+            auto_delete_objects=True,
         )
 
         # Explicitly allow CloudFront Service Principal to read static web assets via OAC
