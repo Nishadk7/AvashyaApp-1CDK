@@ -9,42 +9,39 @@ This repository contains production-ready Infrastructure-as-Code (IaC) written i
 ```
                           +------------------------------------+
                           |     AWS Route 53 Hosted Zone       |
-                          |     (A-Record Alias to ALB)        |
+                          |    (A-Record Alias to CloudFront)  |
                           +------------------------------------+
                                            |
                                            v
-                        +---------------------------------------+
-                        |   External Internet-Facing ALB (80)   |
-                        |         [External-ALB-SG]             |
-                        +---------------------------------------+
-                                           |
-                                           v (Public Subnets: 10.0.1.0/24, 10.0.2.0/24)
-                        +---------------------------------------+
-                        |        Web Tier ASG (Port 80/5000)    |
-                        |           [Web-Tier-SG]               |
-                        |       (Role: Avashya-EC2-Web-Role)    |
-                        +---------------------------------------+
-                                           |
-                                           v (HTTP: 8000 - Internal Traffic)
-                        +---------------------------------------+
-                        |        Internal App ALB (8000)        |
-                        |         [Internal-ALB-SG]             |
-                        +---------------------------------------+
-                                           |
-                                           v (Private App Subnets: 10.0.10.0/24, 10.0.20.0/24)
-                        +---------------------------------------+
-                        |        App Tier ASG (Port 8000)       |
-                        |           [App-Tier-SG]               |
-                        |      (Role: Avashya-EC2-App-Role)     |
-                        +---------------------------------------+
-                            /                               \
-                           /                                 \
-                          v                                   v (PostgreSQL: 5432)
-       +------------------------------------+      +-----------------------------------+
-       |     S3 Gateway VPC Endpoint        |      | Amazon RDS PostgreSQL (Multi-AZ)  |
-       |  (s3://avashya-drop-uploads-2026)  |      |         [RDS-Database-SG]         |
-       +------------------------------------+      | Isolated DB Subnets: 10.0.100/200 |
-                                                   +-----------------------------------+
+                         +-----------------------------------+
+                         |   Amazon CloudFront CDN (HTTPS)   |
+                         +─────────────────┬─────────────────+
+                          /* (Default)     │ /api/* (API Traffic)
+                          v                v
+        +────────────────────────────+   +─────────────────────────────────────+
+        | Amazon S3 Web Bucket (OAC) |   | CloudFront VPC Origin Service SG    |
+        | (avashya-web-frontend-v2)  |   | (sg-03f5ad1e3483e05a4)              |
+        +────────────────────────────+   +──────────────────┬──────────────────+
+                                                            │
+                                                            v (Private Subnets: 10.0.10.0/24, 10.0.11.0/24)
+                                         +─────────────────────────────────────+
+                                         | Private Application Load Balancer   |
+                                         |         [NishadInternsip-ALB-SG]    |
+                                         +──────────────────┬──────────────────+
+                                                            │
+                                                            v (HTTP: Port 8000)
+                                         +─────────────────────────────────────+
+                                         | App Tier Auto Scaling Group (EC2)   |
+                                         |    [NishadInternsip-App-Tier-SG]    |
+                                         |     (Role: Avashya-EC2-App-Role)    |
+                                         +──────────────────┬──────────────────+
+                                           /                │
+                                          /                 v (PostgreSQL: Port 5432)
+       +───────────────────────────────────+   +─────────────────────────────────────+
+       |     S3 Gateway VPC Endpoint       |   | Amazon RDS PostgreSQL (Single-AZ)   |
+       |  (avashya-drop-uploads-2026-v2)   |   |   [NishadInternsip-RDS-Database-SG] |
+       +───────────────────────────────────+   | Isolated DB Subnets: 10.0.20.0/24  |
+                                               +─────────────────────────────────────+
 ```
 
 ---
@@ -54,12 +51,11 @@ This repository contains production-ready Infrastructure-as-Code (IaC) written i
 | Path | Description |
 | :--- | :--- |
 | [`app.py`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/app.py) | Main CDK Application entrypoint orchestrating stack deployment |
-| [`stacks/vpc_stack.py`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/stacks/vpc_stack.py) | Custom VPC `10.0.0.0/16` across 2 AZs (6 subnets, IGW, 2 NAT Gateways, S3 VPC Endpoint) |
-| [`stacks/security_stack.py`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/stacks/security_stack.py) | Custom IAM Roles (`Avashya-EC2-App-Role`, `Avashya-EC2-Web-Role`) & 5 chained Security Groups |
-| [`stacks/storage_db_stack.py`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/stacks/storage_db_stack.py) | Private S3 Bucket (`avashya-drop-uploads-2026`) & Multi-AZ RDS PostgreSQL with IAM Auth |
-| [`stacks/compute_stack.py`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/stacks/compute_stack.py) | External ALB, Internal ALB, Launch Templates (`avashya-web-lt`, `avashya-app-lt`), and ASGs |
-| [`stacks/route53_stack.py`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/stacks/route53_stack.py) | Route 53 Public Hosted Zone and Alias A-Records pointing public domain to External ALB |
-| [`scripts/userdata_web.sh`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/scripts/userdata_web.sh) | Web Tier UserData boot script (Nginx reverse proxy, CloudWatch agent, SPA setup) |
+| [`stacks/vpc_stack.py`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/stacks/vpc_stack.py) | Custom VPC `10.0.0.0/16` across 2 AZs (6 subnets, IGW, Regional NAT Gateway, S3 VPC Endpoint) |
+| [`stacks/security_stack.py`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/stacks/security_stack.py) | Custom IAM Roles (`Avashya-EC2-App-Role`) & 3 chained Security Groups |
+| [`stacks/storage_db_stack.py`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/stacks/storage_db_stack.py) | S3 Frontend Bucket, S3 Uploads Bucket (`v2`) & RDS PostgreSQL Database |
+| [`stacks/compute_stack.py`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/stacks/compute_stack.py) | CloudFront Distribution (OAC & VPC Origin), Private ALB, Launch Template & App ASG |
+| [`stacks/route53_stack.py`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/stacks/route53_stack.py) | Route 53 Public Hosted Zone and Alias A-Records pointing public domain to CloudFront |
 | [`scripts/userdata_app.sh`](file:///c:/Users/nishad/Desktop/AvashyaApp%231CDK/scripts/userdata_app.sh) | App Tier UserData boot script (FastAPI setup, CloudWatch agent, RDS & S3 env vars) |
 
 ---
@@ -68,11 +64,10 @@ This repository contains production-ready Infrastructure-as-Code (IaC) written i
 
 | Security Group | Inbound Source | Port(s) | Description |
 | :--- | :--- | :--- | :--- |
-| `External-ALB-SG` | `0.0.0.0/0` | `80`, `443` | Allows public internet HTTP/HTTPS traffic |
-| `Web-Tier-SG` | `External-ALB-SG` | `80`, `5000` | Allows traffic ONLY from External ALB |
-| `Internal-ALB-SG` | `Web-Tier-SG` | `8000` | Allows internal API traffic ONLY from Web Tier |
-| `App-Tier-SG` | `Internal-ALB-SG` | `8000` | Allows API service requests ONLY from Internal ALB |
-| `RDS-Database-SG` | `App-Tier-SG` | `5432` | Allows PostgreSQL connections ONLY from App Tier |
+| `CloudFront-VPCOrigins-Service-SG` | CloudFront Edge Network | `80`, `443` | AWS-managed security group for CloudFront VPC Origin ENIs |
+| `NishadInternsip-ALB-SG` | `CloudFront-VPCOrigins-Service-SG` / VPC CIDR | `80` | Allows HTTP 80 traffic ONLY from CloudFront VPC Origin |
+| `NishadInternsip-App-Tier-SG` | `NishadInternsip-ALB-SG` | `8000` | Allows API service requests ONLY from Private ALB |
+| `NishadInternsip-RDS-Database-SG` | `NishadInternsip-App-Tier-SG` | `5432` | Allows PostgreSQL connections ONLY from App Tier EC2 instances |
 
 ---
 

@@ -55,7 +55,7 @@ AVASHYA APP - COMPLETE END-TO-END ARCHITECTURE & NETWORK FLOW
    - Action: Routes file upload traffic from private EC2 instances directly to S3 without traversing the Internet or NAT Gateway.
 
 9. AMAZON S3 FILE DROP BUCKET (User Uploads)
-   - Bucket Name: nishadinternsip-avashya-drop-uploads-2026
+   - Bucket Name: nishadinternsip-avashya-drop-uploads-2026-v2
    - Network Location: AWS S3 Regional Storage Service (100% Private Access)
    - Protocol: HTTPS (AWS S3 PUT/GET REST API over TLS Port 443 via VPC Endpoint)
    - Action: Receives user uploaded documents and images from EC2 instances.
@@ -74,14 +74,14 @@ AVASHYA APP - COMPLETE END-TO-END ARCHITECTURE & NETWORK FLOW
 ================================================================================
 SECURITY GROUP CHAINING SUMMARY (LEAST PRIVILEGE)
 ================================================================================
-[Internet / CloudFront]
+[CloudFront VPC Origin Service SG: sg-03f5ad1e3483e05a4]
        │
-       ▼ (HTTP 80 / HTTPS 443)
-[ALB Security Group: NishadInternsip-ALB-SG]
+       ▼ (HTTP 80 ONLY)
+[Private ALB Security Group: NishadInternsip-ALB-SG] (Private Subnets: 10.0.10.x / 10.0.11.x)
        │
        ▼ (TCP 8000 ONLY)
-[App Tier Security Group: NishadInternsip-App-Tier-SG]
+[App Tier Security Group: NishadInternsip-App-Tier-SG] (Private Subnets: 10.0.10.x / 10.0.11.x)
        │
        ▼ (PostgreSQL 5432 ONLY)
-[RDS Database Security Group: NishadInternsip-RDS-Database-SG]
+[RDS Database Security Group: NishadInternsip-RDS-Database-SG] (Isolated Subnets: 10.0.20.x / 10.0.21.x)
 ================================================================================
